@@ -56,7 +56,6 @@ public class ModItemModelProvider extends ItemModelProvider {
             ItemRegistry.PAINITE_CHESTPLATE,
             ItemRegistry.PAINITE_LEGGINGS,
             ItemRegistry.PAINITE_BOOTS
-
     );
 
     public ModItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
@@ -69,6 +68,32 @@ public class ModItemModelProvider extends ItemModelProvider {
             if (EXCLUDED.contains(entry) || entry.get() instanceof BlockItem) continue;
             basicItem(entry.get());
         }
+        withExistingParent("alternacraft:aio_sword", "minecraft:item/handheld");
+        withExistingParent("alternacraft:aio_scythe", "minecraft:item/handheld");
+        withExistingParent("alternacraft:aio_pickaxe", "minecraft:item/handheld");
+        withExistingParent("alternacraft:aio_axe", "minecraft:item/handheld");
+        withExistingParent("alternacraft:aio_shovel", "minecraft:item/handheld");
+        withExistingParent("alternacraft:painite_sword", "minecraft:item/handheld");
+        withExistingParent("alternacraft:painite_scythe", "minecraft:item/handheld");
+        withExistingParent("alternacraft:painite_pickaxe", "minecraft:item/handheld");
+        withExistingParent("alternacraft:painite_axe", "minecraft:item/handheld");
+        withExistingParent("alternacraft:painite_shovel", "minecraft:item/handheld");
+        withExistingParent("alternacraft:magnetic_sword", "minecraft:item/handheld");
+        withExistingParent("alternacraft:magnetic_hoe", "minecraft:item/handheld");
+        withExistingParent("alternacraft:magnetic_shovel", "minecraft:item/handheld");
+        withExistingParent("alternacraft:magnetic_pickaxe", "minecraft:item/handheld");
+        withExistingParent("alternacraft:magnetic_axe", "minecraft:item/handheld");
+        withExistingParent("alternacraft:dark_crystal_sword", "minecraft:item/handheld");
+        withExistingParent("alternacraft:dark_crystal_hoe", "minecraft:item/handheld");
+        withExistingParent("alternacraft:dark_crystal_pickaxe", "minecraft:item/handheld");
+        withExistingParent("alternacraft:dark_crystal_axe", "minecraft:item/handheld");
+        withExistingParent("alternacraft:dark_crystal_shovel", "minecraft:item/handheld");
+        withExistingParent("alternacraft:copperwood_sword", "minecraft:item/handheld");
+        withExistingParent("alternacraft:copperwood_pickaxe", "minecraft:item/handheld");
+        withExistingParent("alternacraft:copperwood_axe", "minecraft:item/handheld");
+        withExistingParent("alternacraft:copperwood_hoe", "minecraft:item/handheld");
+        withExistingParent("alternacraft:copperwood_shovel", "minecraft:item/handheld");
+
         trimmedArmorItem(ItemRegistry.AIO_HELMET);
         trimmedArmorItem(ItemRegistry.AIO_CHESTPLATE);
         trimmedArmorItem(ItemRegistry.AIO_LEGGINGS);

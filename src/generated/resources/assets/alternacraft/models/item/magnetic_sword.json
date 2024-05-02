@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "alternacraft:item/magnetic_sword"
+  }
+}

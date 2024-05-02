@@ -10,7 +10,6 @@ import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import net.neoforged.neoforge.registries.NeoForgeRegistries;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -68,6 +67,60 @@ public class ItemRegistry {
             ArmorMaterials.PAINITE, ArmorItem.Type.LEGGINGS, new Item.Properties().fireResistant());
     public static final DeferredHolder<Item, ArmorItem> PAINITE_HELMET = registerArmorWithDescription("painite_helmet",
             ArmorMaterials.PAINITE, ArmorItem.Type.HELMET, new Item.Properties().fireResistant());
+
+    public static final Supplier<PickaxeItem> AIO_PICKAXE = ITEMS.registerItem("aio_pickaxe",
+            properties -> new PickaxeItem(ToolTiers.AIO_TIER, 5, -3, properties.fireResistant()));
+    public static final Supplier<AxeItem> AIO_AXE = ITEMS.registerItem("aio_axe",
+            properties -> new AxeItem(ToolTiers.AIO_TIER, 34, -2.7f, properties.fireResistant()));
+    public static final Supplier<SwordItem> AIO_SWORD = ITEMS.registerItem("aio_sword",
+            properties -> new SwordItem(ToolTiers.AIO_TIER, 27, -2, properties.fireResistant()));
+    public static final Supplier<HoeItem> AIO_HOE = ITEMS.registerItem("aio_scythe",
+            properties -> new HoeItem(ToolTiers.AIO_TIER, 22, 0, properties.fireResistant()));
+    public static final Supplier<ShovelItem> AIO_SHOVEL = ITEMS.registerItem("aio_shovel",
+            properties -> new ShovelItem(ToolTiers.AIO_TIER, 3, -3, properties.fireResistant()));
+    public static final Supplier<PickaxeItem> DARK_CRYSTAL_PICKAXE = ITEMS.registerItem("dark_crystal_pickaxe",
+            properties -> new PickaxeItem(ToolTiers.AIO_TIER, 1, -2.8f, properties));
+    public static final Supplier<AxeItem> DARK_CRYSTAL_AXE = ITEMS.registerItem("dark_crystal_axe",
+            properties -> new AxeItem(ToolTiers.AIO_TIER, 14, -3.3f, properties));
+    public static final Supplier<SwordItem> DARK_CRYSTAL_SWORD = ITEMS.registerItem("dark_crystal_sword",
+            properties -> new SwordItem(ToolTiers.AIO_TIER, 7, -2.4f, properties));
+    public static final Supplier<HoeItem> DARK_CRYSTAL_HOE = ITEMS.registerItem("dark_crystal_hoe",
+            properties -> new HoeItem(ToolTiers.AIO_TIER, 0, 0, properties));
+    public static final Supplier<ShovelItem> DARK_CRYSTAL_SHOVEL = ITEMS.registerItem("dark_crystal_shovel",
+            properties -> new ShovelItem(ToolTiers.AIO_TIER, 1, -3, properties));
+    public static final Supplier<PickaxeItem> PAINITE_PICKAXE = ITEMS.registerItem("painite_pickaxe",
+            properties -> new PickaxeItem(ToolTiers.AIO_TIER, 1, -2.8f, properties.fireResistant()));
+    public static final Supplier<AxeItem> PAINITE_AXE = ITEMS.registerItem("painite_axe",
+            properties -> new AxeItem(ToolTiers.AIO_TIER, 9, -3.3f, properties.fireResistant()));
+    public static final Supplier<SwordItem> PAINITE_SWORD = ITEMS.registerItem("painite_sword",
+            properties -> new SwordItem(ToolTiers.AIO_TIER, 7, -2.4f, properties.fireResistant()));
+    public static final Supplier<HoeItem> PAINITE_HOE = ITEMS.registerItem("painite_scythe",
+            properties -> new HoeItem(ToolTiers.AIO_TIER, 3, 0, properties.fireResistant()));
+    public static final Supplier<ShovelItem> PAINITE_SHOVEL = ITEMS.registerItem("painite_shovel",
+            properties -> new ShovelItem(ToolTiers.AIO_TIER, 1, -3, properties.fireResistant()));
+    public static final Supplier<PickaxeItem> COPPERWOOD_PICKAXE = ITEMS.registerItem("copperwood_pickaxe",
+            properties -> new PickaxeItem(ToolTiers.AIO_TIER, 1, -2.8f, properties));
+    public static final Supplier<AxeItem> COPPERWOOD_AXE = ITEMS.registerItem("copperwood_axe",
+            properties -> new AxeItem(ToolTiers.AIO_TIER, 9, -3.0f, properties));
+    public static final Supplier<SwordItem> COPPERWOOD_SWORD = ITEMS.registerItem("copperwood_sword",
+            properties -> new SwordItem(ToolTiers.AIO_TIER, 4, -1.8f, properties));
+    public static final Supplier<HoeItem> COPPERWOOD_HOE = ITEMS.registerItem("copperwood_hoe",
+            properties -> new HoeItem(ToolTiers.AIO_TIER, 0, 0, properties));
+    public static final Supplier<ShovelItem> COPPERWOOD_SHOVEL = ITEMS.registerItem("copperwood_shovel",
+            properties -> new ShovelItem(ToolTiers.AIO_TIER, 1, -3, properties));
+    public static final Supplier<PickaxeItem> MAGNETIC_PICKAXE = ITEMS.registerItem("magnetic_pickaxe",
+            properties -> new PickaxeItem(ToolTiers.AIO_TIER, 1, -2.8f, properties));
+    public static final Supplier<AxeItem> MAGNETIC_AXE = ITEMS.registerItem("magnetic_axe",
+            properties -> new AxeItem(ToolTiers.AIO_TIER, 9, -3.0f, properties));
+    public static final Supplier<SwordItem> MAGNETIC_SWORD = ITEMS.registerItem("magnetic_sword",
+            properties -> new SwordItem(ToolTiers.AIO_TIER, 6, -2.4f, properties));
+    public static final Supplier<HoeItem> MAGNETIC_HOE = ITEMS.registerItem("magnetic_hoe",
+            properties -> new HoeItem(ToolTiers.AIO_TIER, 0, 0, properties));
+    public static final Supplier<ShovelItem> MAGNETIC_SHOVEL = ITEMS.registerItem("magnetic_shovel",
+            properties -> new ShovelItem(ToolTiers.AIO_TIER, 1, -3, properties));
+
+
+
 
     private static DeferredHolder<Item, ArmorItem> registerArmorWithDescription(String name, ArmorMaterial material, ArmorItem.Type type, Item.Properties properties) {
         return ITEMS.register(name, () -> new ArmorItem(material, type, properties) {

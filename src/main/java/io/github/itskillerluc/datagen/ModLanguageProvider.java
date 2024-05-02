@@ -18,7 +18,12 @@ public class ModLanguageProvider extends net.neoforged.neoforge.common.data.Lang
             ItemRegistry.AIO_HELMET,
             ItemRegistry.AIO_CHESTPLATE,
             ItemRegistry.AIO_LEGGINGS,
-            ItemRegistry.AIO_BOOTS
+            ItemRegistry.AIO_BOOTS,
+            ItemRegistry.AIO_HOE,
+            ItemRegistry.AIO_AXE,
+            ItemRegistry.AIO_PICKAXE,
+            ItemRegistry.AIO_SHOVEL,
+            ItemRegistry.AIO_SWORD
     );
 
     public ModLanguageProvider(PackOutput output) {
@@ -43,6 +48,11 @@ public class ModLanguageProvider extends net.neoforged.neoforge.common.data.Lang
         addItem(ItemRegistry.AIO_CHESTPLATE, "All In One Chestplate");
         addItem(ItemRegistry.AIO_LEGGINGS, "All In One Leggings");
         addItem(ItemRegistry.AIO_BOOTS, "All In One Boots");
+        addItem(ItemRegistry.AIO_HOE, "All In One Hoe");
+        addItem(ItemRegistry.AIO_PICKAXE, "All In One Pickaxe");
+        addItem(ItemRegistry.AIO_SHOVEL, "All In One Shovel");
+        addItem(ItemRegistry.AIO_SWORD, "All In One Sword");
+        addItem(ItemRegistry.AIO_AXE, "All In One Axe");
 
         // Item descriptions
         add("description." + AlternaCraft.MODID + "." + ItemRegistry.AIO_HELMET.getId().getPath(), "Prevents fall damage and grants strength 2, regeneration 2 and fire resistance when full set is worn.");
