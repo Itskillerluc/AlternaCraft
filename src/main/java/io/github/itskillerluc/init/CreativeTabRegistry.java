@@ -21,7 +21,8 @@ import java.util.function.Supplier;
 public class CreativeTabRegistry {
     private static final List<Supplier<? extends Item>> EXCLUDED = List.of(
             ItemRegistry.COPPERWOOD_SWORD,
-            ItemRegistry.PAINITE_SWORD
+            ItemRegistry.PAINITE_SWORD,
+            ItemRegistry.AIO_SWORD
     );
     public static final DeferredRegister<CreativeModeTab> CREATIVE_TABS = DeferredRegister.create(BuiltInRegistries.CREATIVE_MODE_TAB, AlternaCraft.MODID);
 
@@ -42,6 +43,14 @@ public class CreativeTabRegistry {
                                     output.accept(Util.make(() -> {
                                         var stack = new ItemStack(ItemRegistry.PAINITE_SWORD.get());
                                         stack.enchant(Enchantments.FIRE_ASPECT, 5);
+                                        return stack;
+                                    }));
+                                }
+                                else if (entry.get() == ItemRegistry.AIO_SWORD.get()) {
+                                    output.accept(Util.make(() -> {
+                                        var stack = new ItemStack(ItemRegistry.AIO_SWORD.get());
+                                        stack.enchant(Enchantments.FIRE_ASPECT, 5);
+                                        stack.enchant(Enchantments.SWEEPING_EDGE, 5);
                                         return stack;
                                     }));
                                 }

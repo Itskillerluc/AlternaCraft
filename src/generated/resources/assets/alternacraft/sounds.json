@@ -1,0 +1,14 @@
+{
+  "sonar_ping": {
+    "sounds": [
+      "alternacraft:sonar_ping"
+    ],
+    "subtitle": "subtitle.alternacraft.sonar_ping"
+  },
+  "sonar_pong": {
+    "sounds": [
+      "alternacraft:sonar_ping"
+    ],
+    "subtitle": "subtitle.alternacraft.sonar_ping"
+  }
+}

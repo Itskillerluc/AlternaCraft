@@ -68,56 +68,56 @@ public class ItemRegistry {
     public static final DeferredHolder<Item, ArmorItem> PAINITE_HELMET = registerArmorWithDescription("painite_helmet",
             ArmorMaterials.PAINITE, ArmorItem.Type.HELMET, new Item.Properties().fireResistant());
 
-    public static final Supplier<PickaxeItem> AIO_PICKAXE = ITEMS.registerItem("aio_pickaxe",
-            properties -> new PickaxeItem(ToolTiers.AIO_TIER, 5, -3, properties.fireResistant()));
-    public static final Supplier<AxeItem> AIO_AXE = ITEMS.registerItem("aio_axe",
-            properties -> new AxeItem(ToolTiers.AIO_TIER, 34, -2.7f, properties.fireResistant()));
-    public static final Supplier<SwordItem> AIO_SWORD = ITEMS.registerItem("aio_sword",
-            properties -> new SwordItem(ToolTiers.AIO_TIER, 27, -2, properties.fireResistant()));
-    public static final Supplier<HoeItem> AIO_HOE = ITEMS.registerItem("aio_scythe",
-            properties -> new HoeItem(ToolTiers.AIO_TIER, 22, 0, properties.fireResistant()));
-    public static final Supplier<ShovelItem> AIO_SHOVEL = ITEMS.registerItem("aio_shovel",
-            properties -> new ShovelItem(ToolTiers.AIO_TIER, 3, -3, properties.fireResistant()));
-    public static final Supplier<PickaxeItem> DARK_CRYSTAL_PICKAXE = ITEMS.registerItem("dark_crystal_pickaxe",
-            properties -> new PickaxeItem(ToolTiers.DARK_CRYSTAL_TIER, 1, -2.8f, properties));
-    public static final Supplier<AxeItem> DARK_CRYSTAL_AXE = ITEMS.registerItem("dark_crystal_axe",
-            properties -> new AxeItem(ToolTiers.DARK_CRYSTAL_TIER, 14, -3.3f, properties));
-    public static final Supplier<SwordItem> DARK_CRYSTAL_SWORD = ITEMS.registerItem("dark_crystal_sword",
-            properties -> new SwordItem(ToolTiers.DARK_CRYSTAL_TIER, 7, -2.4f, properties));
-    public static final Supplier<HoeItem> DARK_CRYSTAL_HOE = ITEMS.registerItem("dark_crystal_hoe",
-            properties -> new HoeItem(ToolTiers.DARK_CRYSTAL_TIER, 0, 0, properties));
-    public static final Supplier<ShovelItem> DARK_CRYSTAL_SHOVEL = ITEMS.registerItem("dark_crystal_shovel",
-            properties -> new ShovelItem(ToolTiers.DARK_CRYSTAL_TIER, 1, -3, properties));
+    public static final DeferredHolder<Item, PickaxeItem> AIO_PICKAXE = ITEMS.registerItem("aio_pickaxe",
+            properties -> new AIOPickaxe(ToolTiers.AIO_TIER, 5, -3, properties.fireResistant()));
+    public static final DeferredHolder<Item, AxeItem> AIO_AXE = ITEMS.registerItem("aio_axe",
+            properties -> new AIOAxe(ToolTiers.AIO_TIER, 34, -2.7f, properties.fireResistant()));
+    public static final DeferredHolder<Item, SwordItem> AIO_SWORD = ITEMS.registerItem("aio_sword",
+            properties -> new AIOSword(ToolTiers.AIO_TIER, 27, -2, properties.fireResistant()));
+    public static final DeferredHolder<Item, HoeItem> AIO_HOE = ITEMS.registerItem("aio_scythe",
+            properties -> new AIOScythe(ToolTiers.AIO_TIER, 22, 0, properties.fireResistant()));
+    public static final DeferredHolder<Item, ShovelItem> AIO_SHOVEL = ITEMS.registerItem("aio_shovel",
+            properties -> new AIOShovel(ToolTiers.AIO_TIER, 3, -3, properties.fireResistant()));
+    public static final DeferredHolder<Item, PickaxeItem> DARK_CRYSTAL_PICKAXE = ITEMS.registerItem("dark_crystal_pickaxe",
+            properties -> new DarkCrystalPickaxe(ToolTiers.DARK_CRYSTAL_TIER, 1, -2.8f, properties));
+    public static final DeferredHolder<Item, AxeItem> DARK_CRYSTAL_AXE = ITEMS.registerItem("dark_crystal_axe",
+            properties -> new DarkCrystalAxe(ToolTiers.DARK_CRYSTAL_TIER, 14, -3.3f, properties));
+    public static final DeferredHolder<Item, SwordItem> DARK_CRYSTAL_SWORD = ITEMS.registerItem("dark_crystal_sword",
+            properties -> new DarkCrystalSword(ToolTiers.DARK_CRYSTAL_TIER, 7, -2.4f, properties));
+    public static final DeferredHolder<Item, HoeItem> DARK_CRYSTAL_HOE = ITEMS.registerItem("dark_crystal_hoe",
+            properties -> new DarkCrystalHoe(ToolTiers.DARK_CRYSTAL_TIER, 0, 0, properties));
+    public static final DeferredHolder<Item, ShovelItem> DARK_CRYSTAL_SHOVEL = ITEMS.registerItem("dark_crystal_shovel",
+            properties -> new DarkCrystalShovel(ToolTiers.DARK_CRYSTAL_TIER, 1, -3, properties));
     public static final DeferredHolder<Item, PickaxeItem> PAINITE_PICKAXE = ITEMS.registerItem("painite_pickaxe",
             properties -> new PainitePickaxe(ToolTiers.PAINITE_TIER, 1, -2.8f, properties.fireResistant()));
     public static final DeferredHolder<Item, AxeItem> PAINITE_AXE = ITEMS.registerItem("painite_axe",
             properties -> new PainiteAxe(ToolTiers.PAINITE_TIER, 9, -3.3f, properties.fireResistant()));
-    public static final Supplier<SwordItem> PAINITE_SWORD = ITEMS.registerItem("painite_sword",
-            properties -> new SwordItem(ToolTiers.PAINITE_TIER, 7, -2.4f, properties.fireResistant()));
+    public static final DeferredHolder<Item, SwordItem> PAINITE_SWORD = ITEMS.registerItem("painite_sword",
+            properties -> new PainiteSword(ToolTiers.PAINITE_TIER, 7, -2.4f, properties.fireResistant()));
     public static final DeferredHolder<Item, HoeItem> PAINITE_HOE = ITEMS.registerItem("painite_scythe",
             properties -> new PainiteScythe(ToolTiers.PAINITE_TIER, 3, 0, properties.fireResistant()));
     public static final DeferredHolder<Item, ShovelItem> PAINITE_SHOVEL = ITEMS.registerItem("painite_shovel",
             properties -> new PainiteShovel(ToolTiers.PAINITE_TIER, 1, -3, properties.fireResistant()));
-    public static final Supplier<PickaxeItem> COPPERWOOD_PICKAXE = ITEMS.registerItem("copperwood_pickaxe",
-            properties -> new PickaxeItem(ToolTiers.COPPERWOOD_TIER, 1, -2.8f, properties));
-    public static final Supplier<AxeItem> COPPERWOOD_AXE = ITEMS.registerItem("copperwood_axe",
-            properties -> new AxeItem(ToolTiers.COPPERWOOD_TIER, 9, -3.0f, properties));
-    public static final Supplier<SwordItem> COPPERWOOD_SWORD = ITEMS.registerItem("copperwood_sword",
-            properties -> new SwordItem(ToolTiers.COPPERWOOD_TIER, 4, -1.8f, properties));
-    public static final Supplier<HoeItem> COPPERWOOD_HOE = ITEMS.registerItem("copperwood_hoe",
-            properties -> new HoeItem(ToolTiers.COPPERWOOD_TIER, 0, 0, properties));
-    public static final Supplier<ShovelItem> COPPERWOOD_SHOVEL = ITEMS.registerItem("copperwood_shovel",
-            properties -> new ShovelItem(ToolTiers.COPPERWOOD_TIER, 1, -3, properties));
-    public static final Supplier<PickaxeItem> MAGNETIC_PICKAXE = ITEMS.registerItem("magnetic_pickaxe",
-            properties -> new PickaxeItem(ToolTiers.MAGNETIC_TIER, 1, -2.8f, properties));
-    public static final Supplier<AxeItem> MAGNETIC_AXE = ITEMS.registerItem("magnetic_axe",
-            properties -> new AxeItem(ToolTiers.MAGNETIC_TIER, 9, -3.0f, properties));
-    public static final Supplier<SwordItem> MAGNETIC_SWORD = ITEMS.registerItem("magnetic_sword",
-            properties -> new SwordItem(ToolTiers.MAGNETIC_TIER, 6, -2.4f, properties));
-    public static final Supplier<HoeItem> MAGNETIC_HOE = ITEMS.registerItem("magnetic_hoe",
-            properties -> new HoeItem(ToolTiers.MAGNETIC_TIER, 0, 0, properties));
-    public static final Supplier<ShovelItem> MAGNETIC_SHOVEL = ITEMS.registerItem("magnetic_shovel",
-            properties -> new ShovelItem(ToolTiers.MAGNETIC_TIER, 1, -3, properties));
+    public static final DeferredHolder<Item, PickaxeItem> COPPERWOOD_PICKAXE = ITEMS.registerItem("copperwood_pickaxe",
+            properties -> new CopperwoodPickaxe(ToolTiers.COPPERWOOD_TIER, 1, -2.8f, properties));
+    public static final DeferredHolder<Item, AxeItem> COPPERWOOD_AXE = ITEMS.registerItem("copperwood_axe",
+            properties -> new CopperwoodAxe(ToolTiers.COPPERWOOD_TIER, 9, -3.0f, properties));
+    public static final DeferredHolder<Item, SwordItem> COPPERWOOD_SWORD = ITEMS.registerItem("copperwood_sword",
+            properties -> new CopperwoodSword(ToolTiers.COPPERWOOD_TIER, 4, -1.8f, properties));
+    public static final DeferredHolder<Item, HoeItem> COPPERWOOD_HOE = ITEMS.registerItem("copperwood_hoe",
+            properties -> new CopperwoodHoe(ToolTiers.COPPERWOOD_TIER, 0, 0, properties));
+    public static final DeferredHolder<Item, ShovelItem> COPPERWOOD_SHOVEL = ITEMS.registerItem("copperwood_shovel",
+            properties -> new CopperwoodShovel(ToolTiers.COPPERWOOD_TIER, 1, -3, properties));
+    public static final DeferredHolder<Item, PickaxeItem> MAGNETIC_PICKAXE = ITEMS.registerItem("magnetic_pickaxe",
+            properties -> new MagneticPickaxe(ToolTiers.MAGNETIC_TIER, 1, -2.8f, properties));
+    public static final DeferredHolder<Item, AxeItem> MAGNETIC_AXE = ITEMS.registerItem("magnetic_axe",
+            properties -> new MagneticAxe(ToolTiers.MAGNETIC_TIER, 9, -3.0f, properties));
+    public static final DeferredHolder<Item, SwordItem> MAGNETIC_SWORD = ITEMS.registerItem("magnetic_sword",
+            properties -> new MagneticSword(ToolTiers.MAGNETIC_TIER, 6, -2.4f, properties));
+    public static final DeferredHolder<Item, HoeItem> MAGNETIC_HOE = ITEMS.registerItem("magnetic_hoe",
+            properties -> new MagneticHoe(ToolTiers.MAGNETIC_TIER, 0, 0, properties));
+    public static final DeferredHolder<Item, ShovelItem> MAGNETIC_SHOVEL = ITEMS.registerItem("magnetic_shovel",
+            properties -> new MagneticShovel(ToolTiers.MAGNETIC_TIER, 1, -3, properties));
 
     private static DeferredHolder<Item, ArmorItem> registerArmorWithDescription(String name, ArmorMaterial material, ArmorItem.Type type, Item.Properties properties) {
         return ITEMS.register(name, () -> new ArmorItem(material, type, properties) {

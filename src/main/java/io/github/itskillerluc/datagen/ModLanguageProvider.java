@@ -79,6 +79,28 @@ public class ModLanguageProvider extends net.neoforged.neoforge.common.data.Lang
         add("description." + AlternaCraft.MODID + "." + ItemRegistry.PAINITE_AXE.getId().getPath(), "Auto-Smelts!");
         add("description." + AlternaCraft.MODID + "." + ItemRegistry.PAINITE_SHOVEL.getId().getPath(), "Auto-Smelts!");
         add("description." + AlternaCraft.MODID + "." + ItemRegistry.PAINITE_HOE.getId().getPath(), "Auto-Smelts!");
+        add("description." + AlternaCraft.MODID + "." + ItemRegistry.PAINITE_SWORD.getId().getPath(), "Sets the enemy on fire.");
+        add("description." + AlternaCraft.MODID + "." + ItemRegistry.MAGNETIC_PICKAXE.getId().getPath(), "Puts drops directly in inventory.");
+        add("description." + AlternaCraft.MODID + "." + ItemRegistry.MAGNETIC_AXE.getId().getPath(), "Puts drops directly in inventory.");
+        add("description." + AlternaCraft.MODID + "." + ItemRegistry.MAGNETIC_SHOVEL.getId().getPath(), "Puts drops directly in inventory.");
+        add("description." + AlternaCraft.MODID + "." + ItemRegistry.MAGNETIC_HOE.getId().getPath(), "Puts drops directly in inventory.");
+        add("description." + AlternaCraft.MODID + "." + ItemRegistry.MAGNETIC_SWORD.getId().getPath(), "Puts drops directly in inventory.");
+        add("description." + AlternaCraft.MODID + "." + ItemRegistry.COPPERWOOD_PICKAXE.getId().getPath(), "Rightclick to put down mining lights.");
+        add("description." + AlternaCraft.MODID + "." + ItemRegistry.COPPERWOOD_AXE.getId().getPath(), "Poisons your enemies.");
+        add("description." + AlternaCraft.MODID + "." + ItemRegistry.COPPERWOOD_SHOVEL.getId().getPath(), "Gives xp for every block mined.");
+        add("description." + AlternaCraft.MODID + "." + ItemRegistry.COPPERWOOD_HOE.getId().getPath(), "Automatically replants harvested crops (rightclick).");
+        add("description." + AlternaCraft.MODID + "." + ItemRegistry.COPPERWOOD_SWORD.getId().getPath(), "Poisons your enemies with an extra large swing.");
+        add("description." + AlternaCraft.MODID + "." + ItemRegistry.DARK_CRYSTAL_PICKAXE.getId().getPath(), "Rightclick with an ore in your offhand to find the distance of the ore using sonar.");
+        add("description." + AlternaCraft.MODID + "." + ItemRegistry.DARK_CRYSTAL_AXE.getId().getPath(), "Blinds your enemies and slows them down.");
+        add("description." + AlternaCraft.MODID + "." + ItemRegistry.DARK_CRYSTAL_SHOVEL.getId().getPath(), "Mines a 3x3.");
+        add("description." + AlternaCraft.MODID + "." + ItemRegistry.DARK_CRYSTAL_HOE.getId().getPath(), "Tills a 3x3");
+        add("description." + AlternaCraft.MODID + "." + ItemRegistry.DARK_CRYSTAL_SWORD.getId().getPath(), "Blinds your enemies.");
+        add("description." + AlternaCraft.MODID + "." + ItemRegistry.AIO_PICKAXE.getId().getPath(), "Auto-Smelts!\nPuts drops directly in inventory.\nRightclick to put down mining lights.\nShift Rightclick with an ore in your offhand to find the distance of the ore using sonar.");
+        add("description." + AlternaCraft.MODID + "." + ItemRegistry.AIO_AXE.getId().getPath(), "Auto-Smelts!\nPuts drops directly in inventory.\nPoisons your enemies.\nBlinds your enemies and slows them down.");
+        add("description." + AlternaCraft.MODID + "." + ItemRegistry.AIO_SHOVEL.getId().getPath(), "Auto-Smelts!\nPuts drops directly in inventory.\nGives xp for every block mined.\nMines a 3x3.");
+        add("description." + AlternaCraft.MODID + "." + ItemRegistry.AIO_HOE.getId().getPath(), "Auto-Smelts!\nPuts drops directly in inventory.\nAutomatically replants harvested crops (rightclick).\nTills a 3x3");
+        add("description." + AlternaCraft.MODID + "." + ItemRegistry.AIO_SWORD.getId().getPath(), "Sets the enemy on fire.\nPuts drops directly in inventory.\nPoisons your enemies with an extra large swing.\nBlinds your enemies.");
+
     }
 
 

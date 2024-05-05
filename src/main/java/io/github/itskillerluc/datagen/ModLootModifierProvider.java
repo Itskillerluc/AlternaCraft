@@ -24,7 +24,11 @@ public class ModLootModifierProvider extends GlobalLootModifierProvider {
                                 ItemRegistry.PAINITE_AXE.get(),
                                 ItemRegistry.PAINITE_PICKAXE.get(),
                                 ItemRegistry.PAINITE_SHOVEL.get(),
-                                ItemRegistry.PAINITE_HOE.get())).build()
+                                ItemRegistry.PAINITE_HOE.get(),
+                                ItemRegistry.AIO_AXE.get(),
+                                ItemRegistry.AIO_PICKAXE.get(),
+                                ItemRegistry.AIO_SHOVEL.get(),
+                                ItemRegistry.AIO_HOE.get())).build()
         }));
     }
 }

@@ -1,10 +1,7 @@
 package io.github.itskillerluc;
 
 import com.mojang.logging.LogUtils;
-import io.github.itskillerluc.init.CreativeTabRegistry;
-import io.github.itskillerluc.init.GlobalLootModifierRegistry;
-import io.github.itskillerluc.init.ItemRegistry;
-import io.github.itskillerluc.init.ToolTiers;
+import io.github.itskillerluc.init.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.Entity;
@@ -27,6 +24,8 @@ public class AlternaCraft {
     public static final String MODID = "alternacraft";
     private static final Logger LOGGER = LogUtils.getLogger();
     public AlternaCraft(IEventBus modEventBus, ModContainer modContainer) {
+        SoundEventRegistry.SOUND_EVENTS.register(modEventBus);
+        BlockRegistry.BLOCKS.register(modEventBus);
         ItemRegistry.ITEMS.register(modEventBus);
         CreativeTabRegistry.CREATIVE_TABS.register(modEventBus);
         GlobalLootModifierRegistry.MODIFIERS.register(modEventBus);
