@@ -75,6 +75,10 @@ public class ModLanguageProvider extends net.neoforged.neoforge.common.data.Lang
         add("description." + AlternaCraft.MODID + "." + ItemRegistry.MAGNETIC_CHESTPLATE.getId().getPath(), "Prevents fall damage when full set is worn.");
         add("description." + AlternaCraft.MODID + "." + ItemRegistry.MAGNETIC_LEGGINGS.getId().getPath(), "Prevents fall damage when full set is worn.");
         add("description." + AlternaCraft.MODID + "." + ItemRegistry.MAGNETIC_BOOTS.getId().getPath(), "Prevents fall damage when full set is worn.");
+        add("description." + AlternaCraft.MODID + "." + ItemRegistry.PAINITE_PICKAXE.getId().getPath(), "Auto-Smelts!");
+        add("description." + AlternaCraft.MODID + "." + ItemRegistry.PAINITE_AXE.getId().getPath(), "Auto-Smelts!");
+        add("description." + AlternaCraft.MODID + "." + ItemRegistry.PAINITE_SHOVEL.getId().getPath(), "Auto-Smelts!");
+        add("description." + AlternaCraft.MODID + "." + ItemRegistry.PAINITE_HOE.getId().getPath(), "Auto-Smelts!");
     }
 
 

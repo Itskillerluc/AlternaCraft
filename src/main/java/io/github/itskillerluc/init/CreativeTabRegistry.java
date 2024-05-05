@@ -20,7 +20,8 @@ import java.util.function.Supplier;
 
 public class CreativeTabRegistry {
     private static final List<Supplier<? extends Item>> EXCLUDED = List.of(
-            ItemRegistry.COPPERWOOD_SWORD
+            ItemRegistry.COPPERWOOD_SWORD,
+            ItemRegistry.PAINITE_SWORD
     );
     public static final DeferredRegister<CreativeModeTab> CREATIVE_TABS = DeferredRegister.create(BuiltInRegistries.CREATIVE_MODE_TAB, AlternaCraft.MODID);
 
@@ -31,11 +32,19 @@ public class CreativeTabRegistry {
                     .displayItems((params, output) -> {
                         for (DeferredHolder<Item, ? extends Item> entry : ItemRegistry.ITEMS.getEntries()) {
                             if (EXCLUDED.contains(entry)) {
-                                output.accept(Util.make(() -> {
-                                    var stack = new ItemStack(ItemRegistry.COPPERWOOD_SWORD.get());
-                                    stack.enchant(Enchantments.SWEEPING_EDGE, 5);
-                                    return stack;
-                                }));
+                                if (entry.get() == ItemRegistry.COPPERWOOD_SWORD.get()) {
+                                    output.accept(Util.make(() -> {
+                                        var stack = new ItemStack(ItemRegistry.COPPERWOOD_SWORD.get());
+                                        stack.enchant(Enchantments.SWEEPING_EDGE, 5);
+                                        return stack;
+                                    }));
+                                } else if (entry.get() == ItemRegistry.PAINITE_SWORD.get()) {
+                                    output.accept(Util.make(() -> {
+                                        var stack = new ItemStack(ItemRegistry.PAINITE_SWORD.get());
+                                        stack.enchant(Enchantments.FIRE_ASPECT, 5);
+                                        return stack;
+                                    }));
+                                }
                             } else {
                                 output.accept(entry.get());
                             }

@@ -1,7 +1,7 @@
 package io.github.itskillerluc.init;
 
 import io.github.itskillerluc.AlternaCraft;
-import io.github.itskillerluc.item.ArmorEffectItem;
+import io.github.itskillerluc.item.*;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffectInstance;
@@ -79,48 +79,45 @@ public class ItemRegistry {
     public static final Supplier<ShovelItem> AIO_SHOVEL = ITEMS.registerItem("aio_shovel",
             properties -> new ShovelItem(ToolTiers.AIO_TIER, 3, -3, properties.fireResistant()));
     public static final Supplier<PickaxeItem> DARK_CRYSTAL_PICKAXE = ITEMS.registerItem("dark_crystal_pickaxe",
-            properties -> new PickaxeItem(ToolTiers.AIO_TIER, 1, -2.8f, properties));
+            properties -> new PickaxeItem(ToolTiers.DARK_CRYSTAL_TIER, 1, -2.8f, properties));
     public static final Supplier<AxeItem> DARK_CRYSTAL_AXE = ITEMS.registerItem("dark_crystal_axe",
-            properties -> new AxeItem(ToolTiers.AIO_TIER, 14, -3.3f, properties));
+            properties -> new AxeItem(ToolTiers.DARK_CRYSTAL_TIER, 14, -3.3f, properties));
     public static final Supplier<SwordItem> DARK_CRYSTAL_SWORD = ITEMS.registerItem("dark_crystal_sword",
-            properties -> new SwordItem(ToolTiers.AIO_TIER, 7, -2.4f, properties));
+            properties -> new SwordItem(ToolTiers.DARK_CRYSTAL_TIER, 7, -2.4f, properties));
     public static final Supplier<HoeItem> DARK_CRYSTAL_HOE = ITEMS.registerItem("dark_crystal_hoe",
-            properties -> new HoeItem(ToolTiers.AIO_TIER, 0, 0, properties));
+            properties -> new HoeItem(ToolTiers.DARK_CRYSTAL_TIER, 0, 0, properties));
     public static final Supplier<ShovelItem> DARK_CRYSTAL_SHOVEL = ITEMS.registerItem("dark_crystal_shovel",
-            properties -> new ShovelItem(ToolTiers.AIO_TIER, 1, -3, properties));
-    public static final Supplier<PickaxeItem> PAINITE_PICKAXE = ITEMS.registerItem("painite_pickaxe",
-            properties -> new PickaxeItem(ToolTiers.AIO_TIER, 1, -2.8f, properties.fireResistant()));
-    public static final Supplier<AxeItem> PAINITE_AXE = ITEMS.registerItem("painite_axe",
-            properties -> new AxeItem(ToolTiers.AIO_TIER, 9, -3.3f, properties.fireResistant()));
+            properties -> new ShovelItem(ToolTiers.DARK_CRYSTAL_TIER, 1, -3, properties));
+    public static final DeferredHolder<Item, PickaxeItem> PAINITE_PICKAXE = ITEMS.registerItem("painite_pickaxe",
+            properties -> new PainitePickaxe(ToolTiers.PAINITE_TIER, 1, -2.8f, properties.fireResistant()));
+    public static final DeferredHolder<Item, AxeItem> PAINITE_AXE = ITEMS.registerItem("painite_axe",
+            properties -> new PainiteAxe(ToolTiers.PAINITE_TIER, 9, -3.3f, properties.fireResistant()));
     public static final Supplier<SwordItem> PAINITE_SWORD = ITEMS.registerItem("painite_sword",
-            properties -> new SwordItem(ToolTiers.AIO_TIER, 7, -2.4f, properties.fireResistant()));
-    public static final Supplier<HoeItem> PAINITE_HOE = ITEMS.registerItem("painite_scythe",
-            properties -> new HoeItem(ToolTiers.AIO_TIER, 3, 0, properties.fireResistant()));
-    public static final Supplier<ShovelItem> PAINITE_SHOVEL = ITEMS.registerItem("painite_shovel",
-            properties -> new ShovelItem(ToolTiers.AIO_TIER, 1, -3, properties.fireResistant()));
+            properties -> new SwordItem(ToolTiers.PAINITE_TIER, 7, -2.4f, properties.fireResistant()));
+    public static final DeferredHolder<Item, HoeItem> PAINITE_HOE = ITEMS.registerItem("painite_scythe",
+            properties -> new PainiteScythe(ToolTiers.PAINITE_TIER, 3, 0, properties.fireResistant()));
+    public static final DeferredHolder<Item, ShovelItem> PAINITE_SHOVEL = ITEMS.registerItem("painite_shovel",
+            properties -> new PainiteShovel(ToolTiers.PAINITE_TIER, 1, -3, properties.fireResistant()));
     public static final Supplier<PickaxeItem> COPPERWOOD_PICKAXE = ITEMS.registerItem("copperwood_pickaxe",
-            properties -> new PickaxeItem(ToolTiers.AIO_TIER, 1, -2.8f, properties));
+            properties -> new PickaxeItem(ToolTiers.COPPERWOOD_TIER, 1, -2.8f, properties));
     public static final Supplier<AxeItem> COPPERWOOD_AXE = ITEMS.registerItem("copperwood_axe",
-            properties -> new AxeItem(ToolTiers.AIO_TIER, 9, -3.0f, properties));
+            properties -> new AxeItem(ToolTiers.COPPERWOOD_TIER, 9, -3.0f, properties));
     public static final Supplier<SwordItem> COPPERWOOD_SWORD = ITEMS.registerItem("copperwood_sword",
-            properties -> new SwordItem(ToolTiers.AIO_TIER, 4, -1.8f, properties));
+            properties -> new SwordItem(ToolTiers.COPPERWOOD_TIER, 4, -1.8f, properties));
     public static final Supplier<HoeItem> COPPERWOOD_HOE = ITEMS.registerItem("copperwood_hoe",
-            properties -> new HoeItem(ToolTiers.AIO_TIER, 0, 0, properties));
+            properties -> new HoeItem(ToolTiers.COPPERWOOD_TIER, 0, 0, properties));
     public static final Supplier<ShovelItem> COPPERWOOD_SHOVEL = ITEMS.registerItem("copperwood_shovel",
-            properties -> new ShovelItem(ToolTiers.AIO_TIER, 1, -3, properties));
+            properties -> new ShovelItem(ToolTiers.COPPERWOOD_TIER, 1, -3, properties));
     public static final Supplier<PickaxeItem> MAGNETIC_PICKAXE = ITEMS.registerItem("magnetic_pickaxe",
-            properties -> new PickaxeItem(ToolTiers.AIO_TIER, 1, -2.8f, properties));
+            properties -> new PickaxeItem(ToolTiers.MAGNETIC_TIER, 1, -2.8f, properties));
     public static final Supplier<AxeItem> MAGNETIC_AXE = ITEMS.registerItem("magnetic_axe",
-            properties -> new AxeItem(ToolTiers.AIO_TIER, 9, -3.0f, properties));
+            properties -> new AxeItem(ToolTiers.MAGNETIC_TIER, 9, -3.0f, properties));
     public static final Supplier<SwordItem> MAGNETIC_SWORD = ITEMS.registerItem("magnetic_sword",
-            properties -> new SwordItem(ToolTiers.AIO_TIER, 6, -2.4f, properties));
+            properties -> new SwordItem(ToolTiers.MAGNETIC_TIER, 6, -2.4f, properties));
     public static final Supplier<HoeItem> MAGNETIC_HOE = ITEMS.registerItem("magnetic_hoe",
-            properties -> new HoeItem(ToolTiers.AIO_TIER, 0, 0, properties));
+            properties -> new HoeItem(ToolTiers.MAGNETIC_TIER, 0, 0, properties));
     public static final Supplier<ShovelItem> MAGNETIC_SHOVEL = ITEMS.registerItem("magnetic_shovel",
-            properties -> new ShovelItem(ToolTiers.AIO_TIER, 1, -3, properties));
-
-
-
+            properties -> new ShovelItem(ToolTiers.MAGNETIC_TIER, 1, -3, properties));
 
     private static DeferredHolder<Item, ArmorItem> registerArmorWithDescription(String name, ArmorMaterial material, ArmorItem.Type type, Item.Properties properties) {
         return ITEMS.register(name, () -> new ArmorItem(material, type, properties) {
