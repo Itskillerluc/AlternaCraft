@@ -1,0 +1,16 @@
+{
+  "type": "alternacraft:smelting",
+  "conditions": [
+    {
+      "condition": "minecraft:match_tool",
+      "predicate": {
+        "items": [
+          "alternacraft:painite_axe",
+          "alternacraft:painite_pickaxe",
+          "alternacraft:painite_shovel",
+          "alternacraft:painite_scythe"
+        ]
+      }
+    }
+  ]
+}
