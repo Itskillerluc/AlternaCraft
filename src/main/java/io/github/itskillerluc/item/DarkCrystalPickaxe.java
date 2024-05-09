@@ -6,6 +6,7 @@ import io.github.itskillerluc.init.ToolActions;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -39,9 +40,9 @@ public class DarkCrystalPickaxe extends PickaxeItem {
     }
 
     public static void darkCrystalUse(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
+        if (!pLevel.isClientSide) return;
         int range = 15;
         ItemStack stack = pPlayer.getItemInHand(pUsedHand);
-
         if (stack.getTag() == null || !stack.getTag().contains("distance")) {
             BlockPos closestBlock = null;
 
@@ -49,7 +50,7 @@ public class DarkCrystalPickaxe extends PickaxeItem {
                 for (int y = -range; y <= range; y++) {
                     for (int z = -range; z <= range; z++) {
                         var offsetPos = pPlayer.getOnPos().offset(x, y, z);
-                        if (pLevel.getBlockState(offsetPos).getBlock().asItem() == pPlayer.getItemInHand(pUsedHand == InteractionHand.MAIN_HAND ? InteractionHand.MAIN_HAND : InteractionHand.OFF_HAND).getItem()) {
+                        if (pLevel.getBlockState(offsetPos).getBlock().asItem() == pPlayer.getItemInHand(pUsedHand == InteractionHand.MAIN_HAND ? InteractionHand.OFF_HAND : InteractionHand.MAIN_HAND).getItem()) {
                             if (closestBlock == null || offsetPos.distSqr(pPlayer.getOnPos()) < closestBlock.distSqr(pPlayer.getOnPos())) {
                                 closestBlock = offsetPos;
                             }
@@ -60,9 +61,8 @@ public class DarkCrystalPickaxe extends PickaxeItem {
             if (closestBlock != null) {
                 stack.getOrCreateTag().putLong("gameTime", pLevel.getGameTime());
                 stack.getOrCreateTag().putDouble("distance", Math.sqrt(closestBlock.distSqr(pPlayer.getOnPos())));
-
-                pPlayer.playSound(SoundEventRegistry.SONAR_PING.get());
             }
+            pPlayer.playSound(SoundEventRegistry.SONAR_PING.get());
         }
     }
 
@@ -73,12 +73,14 @@ public class DarkCrystalPickaxe extends PickaxeItem {
     }
 
     public void darkCrystalTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
-        if (pStack.hasTag()) {
+        if (pStack.hasTag() && pLevel.isClientSide()) {
             if (pStack.getTag().contains("gameTime") && pStack.getTag().contains("distance")) {
                 if (pLevel.getGameTime() - pStack.getTag().getLong("gameTime") > 20L * pStack.getTag().getInt("distance")) {
                     pStack.removeTagKey("gameTime");
                     pStack.removeTagKey("distance");
-                    pEntity.playSound(SoundEventRegistry.SONAR_PONG.get());
+                    if (pLevel.isClientSide()) {
+                        pEntity.playSound(SoundEventRegistry.SONAR_PONG.get());
+                    }
                 }
             }
         }

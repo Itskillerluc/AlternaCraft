@@ -19,7 +19,7 @@ public class ModSoundProvider extends SoundDefinitionsProvider {
                 .with(sound("alternacraft:sonar_ping"))
                 .subtitle("subtitle.alternacraft.sonar_ping"));
         add(SoundEventRegistry.SONAR_PONG, SoundDefinition.definition()
-                .with(sound("alternacraft:sonar_ping"))
-                .subtitle("subtitle.alternacraft.sonar_ping"));
+                .with(sound("alternacraft:sonar_pong"))
+                .subtitle("subtitle.alternacraft.sonar_pong"));
     }
 }

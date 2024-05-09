@@ -4,7 +4,7 @@
   "description.alternacraft.aio_chestplate": "Prevents fall damage and grants strength 2, regeneration 2 and fire resistance when full set is worn.",
   "description.alternacraft.aio_helmet": "Prevents fall damage and grants strength 2, regeneration 2 and fire resistance when full set is worn.",
   "description.alternacraft.aio_leggings": "Prevents fall damage and grants strength 2, regeneration 2 and fire resistance when full set is worn.",
-  "description.alternacraft.aio_pickaxe": "Auto-Smelts!\nPuts drops directly in inventory.\nRightclick to put down mining lights.\nRightclick with an ore in your offhand to find the distance of the ore using sonar.\nBlinds your enemies.",
+  "description.alternacraft.aio_pickaxe": "Auto-Smelts!\nPuts drops directly in inventory.\nRightclick to put down mining lights.\nShift Rightclick with an ore in your offhand to find the distance of the ore using sonar.",
   "description.alternacraft.aio_scythe": "Auto-Smelts!\nPuts drops directly in inventory.\nAutomatically replants harvested crops (rightclick).\nTills a 3x3",
   "description.alternacraft.aio_shovel": "Auto-Smelts!\nPuts drops directly in inventory.\nGives xp for every block mined.\nMines a 3x3.",
   "description.alternacraft.aio_sword": "Sets the enemy on fire.\nPuts drops directly in inventory.\nPoisons your enemies with an extra large swing.\nBlinds your enemies.",
@@ -97,5 +97,7 @@
   "item.alternacraft.painite_sword": "Painite Sword",
   "item.alternacraft.prisamond_shard": "Prisamond Shard",
   "item.alternacraft.prisma_stick": "Prisma Stick",
+  "subtitle.alternacraft.sonar_ping": "Sonar Ping",
+  "subtitle.alternacraft.sonar_pong": "Sonar Pong",
   "ítemGroup.alternacraft.main": "AlternaCraft"
 }

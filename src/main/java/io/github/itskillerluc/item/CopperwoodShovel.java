@@ -29,7 +29,7 @@ public class CopperwoodShovel extends ShovelItem {
     public static boolean copperwoodMine(LivingEntity pEntityLiving, boolean condition) {
         if (condition) {
             if (pEntityLiving instanceof Player player) {
-                player.giveExperiencePoints(3);
+                player.giveExperiencePoints(1);
             }
             return true;
         }

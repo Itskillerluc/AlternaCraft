@@ -101,6 +101,10 @@ public class ModLanguageProvider extends net.neoforged.neoforge.common.data.Lang
         add("description." + AlternaCraft.MODID + "." + ItemRegistry.AIO_HOE.getId().getPath(), "Auto-Smelts!\nPuts drops directly in inventory.\nAutomatically replants harvested crops (rightclick).\nTills a 3x3");
         add("description." + AlternaCraft.MODID + "." + ItemRegistry.AIO_SWORD.getId().getPath(), "Sets the enemy on fire.\nPuts drops directly in inventory.\nPoisons your enemies with an extra large swing.\nBlinds your enemies.");
 
+
+        //Subtitles
+        add("subtitle.alternacraft.sonar_ping", "Sonar Ping");
+        add("subtitle.alternacraft.sonar_pong", "Sonar Pong");
     }
 
 

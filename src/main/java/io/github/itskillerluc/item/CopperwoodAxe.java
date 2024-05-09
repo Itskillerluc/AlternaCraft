@@ -27,7 +27,7 @@ public class CopperwoodAxe extends AxeItem {
     }
 
     public static void copperwoodHurt(LivingEntity pTarget) {
-        pTarget.addEffect(new MobEffectInstance(MobEffects.POISON, 100));
+        pTarget.addEffect(new MobEffectInstance(MobEffects.POISON, 2, 300));
     }
 
     @Override

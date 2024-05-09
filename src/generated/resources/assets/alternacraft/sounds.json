@@ -7,8 +7,8 @@
   },
   "sonar_pong": {
     "sounds": [
-      "alternacraft:sonar_ping"
+      "alternacraft:sonar_pong"
     ],
-    "subtitle": "subtitle.alternacraft.sonar_ping"
+    "subtitle": "subtitle.alternacraft.sonar_pong"
   }
 }

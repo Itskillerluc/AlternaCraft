@@ -6,7 +6,10 @@ import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
@@ -14,6 +17,8 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.gameevent.GameEvent;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.neoforge.common.ToolActions;
 import org.jetbrains.annotations.Nullable;
@@ -30,41 +35,61 @@ public class DarkCrystalHoe extends HoeItem {
     @Override
     public InteractionResult useOn(UseOnContext pContext) {
         darkCrystalUse(pContext);
-        return super.useOn(pContext);
+        return InteractionResult.SUCCESS;
+        //return super.useOn(pContext);
     }
 
     public static void darkCrystalUse(UseOnContext pContext) {
         if (pContext.getPlayer() == null) return;
         for (int x = -1; x < 2; x++) {
             for (int z = -1; z < 2; z++) {
-                var vec3 = Vec3.directionFromRotation(pContext.getPlayer().getRotationVector());
-                var direction = Direction.getNearestStable(((float) vec3.x), (float) vec3.y, (float) vec3.z);
-                if (direction.getAxis().isHorizontal()) {
-                    var blockPos = pContext.getClickedPos().relative(direction.getClockWise(), x).relative(Direction.UP, z);
-                    if (useHoe(pContext, blockPos)) return;
-                } else {
-                    var blockPos = pContext.getClickedPos().relative(pContext.getHorizontalDirection(), x).relative(direction, z);
-                    if (useHoe(pContext, blockPos)) return;
-                }
+                var blockPos = pContext.getClickedPos().north(x).east(z);
+                useHoe(new UseOnContext(pContext.getPlayer(), pContext.getHand(), new BlockHitResult(pContext.getClickLocation(), pContext.getClickedFace(), blockPos, pContext.isInside())));
             }
         }
     }
 
-    private static boolean useHoe(UseOnContext pContext, BlockPos blockPos) {
-        BlockState toolModifiedState = pContext.getLevel().getBlockState(blockPos).getToolModifiedState(pContext, ToolActions.HOE_TILL, false);
+    public static InteractionResult useHoe(UseOnContext pContext) {
+        Level level = pContext.getLevel();
+        BlockPos blockpos = pContext.getClickedPos();
+        BlockState toolModifiedState = level.getBlockState(blockpos).getToolModifiedState(pContext, net.neoforged.neoforge.common.ToolActions.HOE_TILL, false);
         Pair<Predicate<UseOnContext>, Consumer<UseOnContext>> pair = toolModifiedState == null ? null : Pair.of(ctx -> true, changeIntoState(toolModifiedState));
         if (pair == null) {
-            return true;
+            return InteractionResult.PASS;
         } else {
             Predicate<UseOnContext> predicate = pair.getFirst();
             Consumer<UseOnContext> consumer = pair.getSecond();
             if (predicate.test(pContext)) {
-                if (!pContext.getLevel().isClientSide) {
+                Player player = pContext.getPlayer();
+                level.playSound(player, blockpos, SoundEvents.HOE_TILL, SoundSource.BLOCKS, 1.0F, 1.0F);
+                if (!level.isClientSide) {
                     consumer.accept(pContext);
+                    level.updateNeighborsAt(pContext.getClickedPos(), toolModifiedState.getBlock());
+                    if (player != null) {
+                        pContext.getItemInHand().hurtAndBreak(1, player, p_150845_ -> p_150845_.broadcastBreakEvent(pContext.getHand()));
+                    }
+                }
+
+                return InteractionResult.sidedSuccess(level.isClientSide);
+            } else {
+                return InteractionResult.PASS;
+            }
+        }
+    }
+
+    private static void useHoe(UseOnContext pContext, BlockPos blockPos) {
+        BlockState toolModifiedState = pContext.getLevel().getBlockState(blockPos).getToolModifiedState(pContext, ToolActions.HOE_TILL, false);
+        Pair<Predicate<UseOnContext>, Consumer<UseOnContext>> pair = toolModifiedState == null ? null : Pair.of(ctx -> true, changeIntoState(toolModifiedState));
+        if (pair != null) {
+            Predicate<UseOnContext> predicate = pair.getFirst();
+            Consumer<UseOnContext> consumer = pair.getSecond();
+            if (predicate.test(pContext)) {
+                if (!pContext.getLevel().isClientSide) {
+                    pContext.getLevel().setBlock(blockPos, toolModifiedState, 11);
+                    pContext.getLevel().gameEvent(GameEvent.BLOCK_CHANGE, blockPos, GameEvent.Context.of(pContext.getPlayer(), toolModifiedState));
                 }
             }
         }
-        return false;
     }
 
     @Override

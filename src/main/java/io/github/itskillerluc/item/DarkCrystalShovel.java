@@ -34,9 +34,13 @@ public class DarkCrystalShovel extends ShovelItem {
                 var vec3 = Vec3.directionFromRotation(pEntityLiving.getRotationVector());
                 var direction = Direction.getNearestStable(((float) vec3.x), (float) vec3.y, (float) vec3.z);
                 if (direction.getAxis().isHorizontal()) {
-                    pLevel.destroyBlock(pPos.relative(direction.getClockWise(), x).relative(Direction.UP, z), true, pEntityLiving);
+                    if (pLevel.getBlockState(pPos.relative(direction.getClockWise(), x).relative(Direction.UP, z)).is(pLevel.getBlockState(pPos).getBlock())) {
+                        pLevel.destroyBlock(pPos.relative(direction.getClockWise(), x).relative(Direction.UP, z), true, pEntityLiving);
+                    }
                 } else {
-                    pLevel.destroyBlock(pPos.relative(direction.getClockWise(), x).relative(direction, z), true, pEntityLiving);
+                    if (pLevel.getBlockState(pPos.north(x).east(z)).is(pLevel.getBlockState(pPos).getBlock())) {
+                        pLevel.destroyBlock(pPos.north(x).east(z), true, pEntityLiving);
+                    }
                 }
             }
         }

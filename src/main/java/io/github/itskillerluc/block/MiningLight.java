@@ -14,10 +14,10 @@ public class MiningLight extends Block {
 
     @Override
     public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
-        double d0 = pPos.getX() + 0.5d;
+        double d0 = pPos.getX();
         double d1 = pPos.getY();
-        double d2 = pPos.getZ() + 0.5d;
+        double d2 = pPos.getZ();
 
-        pLevel.addParticle(ParticleTypes.GLOW, d0 + pRandom.nextDouble() - pRandom.nextDouble(), d1 + pRandom.nextDouble() - pRandom.nextDouble(), d2 + pRandom.nextDouble() - pRandom.nextDouble(), 0.0, 0.0, 0.0);
+        pLevel.addParticle(ParticleTypes.GLOW, d0 + pRandom.nextDouble(), d1 + pRandom.nextDouble(), d2 + pRandom.nextDouble(), 0.0, 0.0, 0.0);
     }
 }
