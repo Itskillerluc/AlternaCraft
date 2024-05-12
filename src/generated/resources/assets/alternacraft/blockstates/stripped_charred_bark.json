@@ -1,0 +1,16 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "alternacraft:block/stripped_charred_bark_horizontal",
+      "x": 90,
+      "y": 90
+    },
+    "axis=y": {
+      "model": "alternacraft:block/stripped_charred_bark"
+    },
+    "axis=z": {
+      "model": "alternacraft:block/stripped_charred_bark_horizontal",
+      "x": 90
+    }
+  }
+}

@@ -1,3 +1,12 @@
-// 1.20.4	2024-05-02T18:20:13.4238256	Tags for minecraft:block mod id alternacraft
+// 1.20.4	2024-05-12T14:31:05.6516585	Tags for minecraft:block mod id alternacraft
 2c5a031b016925388ae1b46c67bea0d8cbacdfbd data/alternacraft/tags/blocks/needs_aio_tool.json
 a249c46329a41538f49a564e1f14338aaf1be5a0 data/alternacraft/tags/blocks/needs_dark_crystal_tool.json
+07e8864fa90d36320a08677a2ced60b05ff95f76 data/minecraft/tags/blocks/dirt.json
+11062df92bcca03095dad00fc2dfcb7052296074 data/minecraft/tags/blocks/flowers.json
+92ba13da97c7e3ab9741b3a8501d5d7131fdb54c data/minecraft/tags/blocks/logs_that_burn.json
+fa85ae18e12e15912f61feef0320d3e70e1dcedc data/minecraft/tags/blocks/mineable/axe.json
+3ad76607ba502999bda1cb5869a0696bc54c4ac0 data/minecraft/tags/blocks/mineable/pickaxe.json
+dcc27eb201d3c6fd92b385b32741d4d7bbdbd046 data/minecraft/tags/blocks/mineable/shovel.json
+9f3d569175a837426d5afff17efc45bdd4437239 data/minecraft/tags/blocks/needs_diamond_tool.json
+5633a2d276aaaeecb7e10d60d9dfc23beb42377b data/minecraft/tags/blocks/planks.json
+a9bdb5f85f8d72da5c86aaa7fad0aa6f111ad165 data/minecraft/tags/blocks/sand.json

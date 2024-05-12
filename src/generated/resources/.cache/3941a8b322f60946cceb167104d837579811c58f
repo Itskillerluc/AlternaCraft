@@ -1,0 +1,12 @@
+// 1.20.4	2024-05-12T14:31:05.6526562	Tags for minecraft:item mod id alternacraft
+5b2499ec592af647ef3929de6474e0ae916a401f data/minecraft/tags/items/axes.json
+07e8864fa90d36320a08677a2ced60b05ff95f76 data/minecraft/tags/items/dirt.json
+11062df92bcca03095dad00fc2dfcb7052296074 data/minecraft/tags/items/flowers.json
+e8bfd09a61a8a55d9bfb4b6ae8301d82a4f8dde3 data/minecraft/tags/items/hoes.json
+92ba13da97c7e3ab9741b3a8501d5d7131fdb54c data/minecraft/tags/items/logs_that_burn.json
+b57527afcbe33f7e377a9acdaee2a1599fbd6fb3 data/minecraft/tags/items/pickaxes.json
+5633a2d276aaaeecb7e10d60d9dfc23beb42377b data/minecraft/tags/items/planks.json
+a9bdb5f85f8d72da5c86aaa7fad0aa6f111ad165 data/minecraft/tags/items/sand.json
+0eed9c56cbf28ff49ac9cca9d658b6fdb13aff2a data/minecraft/tags/items/shovels.json
+fe2738dd6f7a32da5d8ae7d00227312142dab1b1 data/minecraft/tags/items/swords.json
+f00bccd5489da9b196ae16623057defc866207bc data/minecraft/tags/items/trimmable_armor.json

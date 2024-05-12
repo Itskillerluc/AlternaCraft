@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "alternacraft:block/charred_bark_top",
+    "side": "alternacraft:block/charred_bark"
+  }
+}

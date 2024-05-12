@@ -3,6 +3,7 @@ package io.github.itskillerluc.init;
 import io.github.itskillerluc.AlternaCraft;
 import io.github.itskillerluc.item.*;
 import net.minecraft.ChatFormatting;
+import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -25,7 +26,7 @@ public class ItemRegistry {
     public static final Supplier<Item> MINI_STAR = ITEMS.registerSimpleItem("mini_star");
     public static final Supplier<Item> PAINITE_CRYSTAL = ITEMS.registerSimpleItem("painite_crystal");
     public static final Supplier<Item> PRISAMOND_SHARD = ITEMS.registerSimpleItem("prisamond_shard");
-    public static final Supplier<Item> prisma_stick = ITEMS.registerSimpleItem("prisma_stick");
+    public static final Supplier<Item> PRISMA_STICK = ITEMS.registerSimpleItem("prisma_stick");
 
     public static final DeferredHolder<Item, ArmorItem> COPPERWOOD_BOOTS = registerArmorWithDescription("copperwood_boots",
             ArmorMaterials.COPPERWOOD, ArmorItem.Type.BOOTS, new Item.Properties());
@@ -118,6 +119,22 @@ public class ItemRegistry {
             properties -> new MagneticHoe(ToolTiers.MAGNETIC_TIER, 0, 0, properties));
     public static final DeferredHolder<Item, ShovelItem> MAGNETIC_SHOVEL = ITEMS.registerItem("magnetic_shovel",
             properties -> new MagneticShovel(ToolTiers.MAGNETIC_TIER, 1, -3, properties));
+
+    public static final Supplier<BlockItem> CHARRED_BARK = ITEMS.registerSimpleBlockItem(BlockRegistry.CHARRED_BARK);
+    public static final Supplier<BlockItem> CHARRED_PLANKS = ITEMS.registerSimpleBlockItem(BlockRegistry.CHARRED_PLANKS);
+    public static final DeferredHolder<Item, BucketItem> COOL_LAVA_BUCKET = ITEMS.registerItem("cool_lava_bucket",
+            props -> new BucketItem(FluidRegistry.COOL_LAVA, props), new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET));
+    public static final Supplier<BlockItem> DEAD_DANDELION = ITEMS.registerSimpleBlockItem(BlockRegistry.DEAD_DANDELION);
+    public static final Supplier<BlockItem> DEAD_POPPY = ITEMS.registerSimpleBlockItem(BlockRegistry.DEAD_POPPY);
+    public static final Supplier<BlockItem> DEAD_GRASS = ITEMS.registerSimpleBlockItem(BlockRegistry.DEAD_GRASS);
+    public static final Supplier<BlockItem> PAINITE_ORE_SOIL = ITEMS.registerSimpleBlockItem(BlockRegistry.PAINITE_ORE_SOIL);
+    public static final Supplier<BlockItem> STRIPPED_CHARRED_BARK = ITEMS.registerSimpleBlockItem(BlockRegistry.STRIPPED_CHARRED_BARK);
+    public static final Supplier<BlockItem> VOLCANIC_ROCK = ITEMS.registerSimpleBlockItem(BlockRegistry.VOLCANIC_ROCK);
+    public static final Supplier<BlockItem> VOLCANIC_SOIL = ITEMS.registerSimpleBlockItem(BlockRegistry.VOLCANIC_SOIL);
+    public static final Supplier<BlockItem> FROZEN_SAND = ITEMS.registerSimpleBlockItem(BlockRegistry.FROZEN_SAND);
+    public static final Supplier<BlockItem> FROZEN_CACTUS = ITEMS.registerSimpleBlockItem(BlockRegistry.FROZEN_CACTUS);
+    public static final Supplier<BlockItem> DEEPSLATE_DARK_CRYSTAL_ORE = ITEMS.registerSimpleBlockItem(BlockRegistry.DEEPSLATE_DARK_CRYSTAL_ORE);
+    public static final Supplier<BlockItem> DARK_CRYSTAL_ORE = ITEMS.registerSimpleBlockItem(BlockRegistry.DARK_CRYSTAL_ORE);
 
     private static DeferredHolder<Item, ArmorItem> registerArmorWithDescription(String name, ArmorMaterial material, ArmorItem.Type type, Item.Properties properties) {
         return ITEMS.register(name, () -> new ArmorItem(material, type, properties) {

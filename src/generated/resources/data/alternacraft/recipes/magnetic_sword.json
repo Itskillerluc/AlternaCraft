@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "i": {
+      "item": "alternacraft:magnetic_crystal"
+    },
+    "s": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "i",
+    "i",
+    "s"
+  ],
+  "result": {
+    "item": "alternacraft:magnetic_sword"
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "parent": "minecraft:block/cactus",
+  "textures": {
+    "particle": "alternacraft:block/frozen_cactus_side",
+    "bottom": "alternacraft:block/frozen_cactus_bottom",
+    "top": "alternacraft:block/frozen_cactus_top",
+    "side": "alternacraft:block/frozen_cactus_side"
+  }
+}

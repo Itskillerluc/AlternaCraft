@@ -26,6 +26,8 @@ public class AlternaCraft {
     public AlternaCraft(IEventBus modEventBus, ModContainer modContainer) {
         SoundEventRegistry.SOUND_EVENTS.register(modEventBus);
         BlockRegistry.BLOCKS.register(modEventBus);
+        FluidRegistry.FLUIDS.register(modEventBus);
+        FluidTypeRegistry.FLUID_TYPES.register(modEventBus);
         ItemRegistry.ITEMS.register(modEventBus);
         CreativeTabRegistry.CREATIVE_TABS.register(modEventBus);
         GlobalLootModifierRegistry.MODIFIERS.register(modEventBus);

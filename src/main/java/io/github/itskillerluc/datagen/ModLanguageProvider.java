@@ -1,10 +1,12 @@
 package io.github.itskillerluc.datagen;
 
 import io.github.itskillerluc.AlternaCraft;
+import io.github.itskillerluc.init.BlockRegistry;
 import io.github.itskillerluc.init.ItemRegistry;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.registries.DeferredHolder;
 
 import java.util.Arrays;
@@ -24,6 +26,9 @@ public class ModLanguageProvider extends net.neoforged.neoforge.common.data.Lang
             ItemRegistry.AIO_PICKAXE,
             ItemRegistry.AIO_SHOVEL,
             ItemRegistry.AIO_SWORD
+    );
+
+    private static final List<Supplier<? extends Block>> EXCLUDED_BLOCKS = List.of(
     );
 
     public ModLanguageProvider(PackOutput output) {
@@ -105,7 +110,14 @@ public class ModLanguageProvider extends net.neoforged.neoforge.common.data.Lang
         //Subtitles
         add("subtitle.alternacraft.sonar_ping", "Sonar Ping");
         add("subtitle.alternacraft.sonar_pong", "Sonar Pong");
+
+        //Blocks
+        for (DeferredHolder<Block, ? extends Block> entry : BlockRegistry.BLOCKS.getEntries()) {
+            if (EXCLUDED_BLOCKS.contains(entry)) continue;
+            var input = entry.getKey().location().getPath();
+            addBlock(entry, Arrays.stream(input.split("_"))
+                    .map(word -> Character.toTitleCase(word.charAt(0)) + word.substring(1))
+                    .collect(Collectors.joining(" ")));
+        }
     }
-
-
 }

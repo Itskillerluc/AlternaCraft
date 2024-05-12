@@ -1,4 +1,4 @@
-// 1.20.4	2024-05-02T19:07:02.4436822	Item Models: alternacraft
+// 1.20.4	2024-05-10T14:46:19.0290715	Item Models: alternacraft
 651b8c96c692186e52edf1515ff8c05376b2985b assets/alternacraft/models/item/aio_axe.json
 5083d4c129e4453ce96363becd1d52c3470f0ec4 assets/alternacraft/models/item/aio_boots.json
 aa9444f8d4102d6d29af2e7760564680f0b21bb1 assets/alternacraft/models/item/aio_boots_amethyst_trim.json
@@ -49,6 +49,7 @@ e21c1589330b34fce713bb38b767a71719214ff5 assets/alternacraft/models/item/aio_leg
 6a3817201abd8e0bc80ea3be48948e317db83d2a assets/alternacraft/models/item/aio_scythe.json
 739eb1fd11b67276436142a91008a505b229de8e assets/alternacraft/models/item/aio_shovel.json
 78ad33425e398c96fc16c25b2b46f04c2c0c7c42 assets/alternacraft/models/item/aio_sword.json
+d45396d0eb461211e29ab6b77a21ac0e401669c9 assets/alternacraft/models/item/cool_lava_bucket.json
 cccc5cd39a294eccb58694baa4c29665969f24da assets/alternacraft/models/item/copperwood_axe.json
 98bcf5078354c037c56170263b65985dff16221d assets/alternacraft/models/item/copperwood_boots.json
 1fbef08a636139be1ce9eff13ce04f2bcba54533 assets/alternacraft/models/item/copperwood_boots_amethyst_trim.json

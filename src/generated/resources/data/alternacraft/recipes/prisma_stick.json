@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "p": {
+      "item": "alternacraft:prisamond_shard"
+    }
+  },
+  "pattern": [
+    "p",
+    "p"
+  ],
+  "result": {
+    "item": "alternacraft:prisma_stick"
+  }
+}
