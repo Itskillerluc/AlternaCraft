@@ -4,7 +4,9 @@ import io.github.itskillerluc.init.BlockRegistry;
 import io.github.itskillerluc.init.ItemRegistry;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 
 import java.util.Collections;
 
@@ -35,5 +37,12 @@ public class ModBlockLootTableProvider extends BlockLootSubProvider {
         dropSelf(BlockRegistry.FROZEN_SAND.value());
         add(BlockRegistry.DEEPSLATE_DARK_CRYSTAL_ORE.value(), createOreDrop(BlockRegistry.DEEPSLATE_DARK_CRYSTAL_ORE.value(), ItemRegistry.DARK_CRYSTAL.get()));
         add(BlockRegistry.DARK_CRYSTAL_ORE.value(), createOreDrop(BlockRegistry.DARK_CRYSTAL_ORE.value(), ItemRegistry.DARK_CRYSTAL.get()));
+        dropSelf(BlockRegistry.BLUE_BULB.get());
+        add(BlockRegistry.ELECTREE_LEAVES.get(), createLeavesDrops(BlockRegistry.ELECTREE_LEAVES.value(), Blocks.OAK_SAPLING, NORMAL_LEAVES_SAPLING_CHANCES));
+        dropSelf(BlockRegistry.ELECTREE_LOG.value());
+        dropSelf(BlockRegistry.ELECTREE_PLANKS.value());
+        dropSelf(BlockRegistry.GREEN_ROSE_BULB.get());
+        dropSelf(BlockRegistry.ORANGE_BULB.get());
+        dropSelf(BlockRegistry.STRIPPED_ELECTREE_LOG.value());
     }
 }

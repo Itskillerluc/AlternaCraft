@@ -26,7 +26,9 @@ public class ModBlockTagProvider extends BlockTagsProvider {
         tag(BlockTags.MINEABLE_WITH_AXE)
                 .add(BlockRegistry.CHARRED_BARK.value())
                 .add(BlockRegistry.CHARRED_PLANKS.value())
-                .add(BlockRegistry.STRIPPED_CHARRED_BARK.value());
+                .add(BlockRegistry.STRIPPED_CHARRED_BARK.value())
+                .add(BlockRegistry.ELECTREE_LOG.value())
+                .add(BlockRegistry.STRIPPED_ELECTREE_LOG.value());
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(BlockRegistry.VOLCANIC_ROCK.get())
                 .add(BlockRegistry.PAINITE_ORE_SOIL.get())
@@ -39,15 +41,23 @@ public class ModBlockTagProvider extends BlockTagsProvider {
                 .add(BlockRegistry.PAINITE_ORE_SOIL.get());
         tag(BlockTags.LOGS_THAT_BURN)
                 .add(BlockRegistry.CHARRED_BARK.value())
-                .add(BlockRegistry.STRIPPED_CHARRED_BARK.value());
+                .add(BlockRegistry.STRIPPED_CHARRED_BARK.value())
+                .add(BlockRegistry.ELECTREE_LOG.value())
+                .add(BlockRegistry.STRIPPED_ELECTREE_LOG.value());
         tag(BlockTags.PLANKS)
-                .add(BlockRegistry.CHARRED_PLANKS.value());
+                .add(BlockRegistry.CHARRED_PLANKS.value())
+                .add(BlockRegistry.ELECTREE_PLANKS.value());
         tag(BlockTags.FLOWERS)
                 .add(BlockRegistry.DEAD_DANDELION.value())
-                .add(BlockRegistry.DEAD_POPPY.value());
+                .add(BlockRegistry.DEAD_POPPY.value())
+                .add(BlockRegistry.BLUE_BULB.value())
+                .add(BlockRegistry.GREEN_ROSE_BULB.value())
+                .add(BlockRegistry.ORANGE_BULB.value());
         tag(BlockTags.DIRT)
                 .add(BlockRegistry.VOLCANIC_SOIL.get());
         tag(BlockTags.SAND)
                 .add(BlockRegistry.FROZEN_SAND.value());
+        tag(BlockTags.LEAVES)
+                .add(BlockRegistry.ELECTREE_LEAVES.value());
     }
 }

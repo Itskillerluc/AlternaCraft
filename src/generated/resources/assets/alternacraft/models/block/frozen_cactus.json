@@ -1,9 +1,10 @@
 {
   "parent": "minecraft:block/cactus",
+  "render_type": "minecraft:cutout",
   "textures": {
-    "particle": "alternacraft:block/frozen_cactus_side",
     "bottom": "alternacraft:block/frozen_cactus_bottom",
-    "top": "alternacraft:block/frozen_cactus_top",
-    "side": "alternacraft:block/frozen_cactus_side"
+    "particle": "alternacraft:block/frozen_cactus_side",
+    "side": "alternacraft:block/frozen_cactus_side",
+    "top": "alternacraft:block/frozen_cactus_top"
   }
 }

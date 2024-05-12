@@ -1,6 +1,7 @@
 package io.github.itskillerluc.datagen;
 
 import io.github.itskillerluc.init.ItemRegistry;
+import io.github.itskillerluc.init.Tags;
 import net.minecraft.advancements.critereon.InventoryChangeTrigger;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
@@ -156,6 +157,11 @@ public class ModRecipeProvider extends RecipeProvider {
                 .save(pRecipeOutput);
         oneToOneConversionRecipe(pRecipeOutput, Items.RED_DYE, ItemRegistry.DEAD_POPPY.get(), "red_dye");
         oneToOneConversionRecipe(pRecipeOutput, Items.YELLOW_DYE, ItemRegistry.DEAD_POPPY.get(), "yellow_dye");
+        oneToOneConversionRecipe(pRecipeOutput, Items.ORANGE_DYE, ItemRegistry.ORANGE_BULB.get(), "orange_dye");
+        oneToOneConversionRecipe(pRecipeOutput, Items.BLUE_DYE, ItemRegistry.BLUE_BULB.get(), "blue_dye");
+        oneToOneConversionRecipe(pRecipeOutput, Items.LIME_DYE, ItemRegistry.GREEN_ROSE_BULB.get(), "lime_dye");
+        planksFromLog(pRecipeOutput, ItemRegistry.CHARRED_PLANKS.get(), Tags.CHARRED_LOGS, 4);
+        planksFromLog(pRecipeOutput, ItemRegistry.ELECTREE_PLANKS.get(), Tags.ELECTREE_LOGS, 4);
         oreBlasting(pRecipeOutput, List.of(ItemRegistry.PAINITE_ORE_SOIL.get()), RecipeCategory.MISC, ItemRegistry.PAINITE_CRYSTAL.get(), 0.7f, 100, "painite_crystal");
         oreSmelting(pRecipeOutput, List.of(ItemRegistry.PAINITE_ORE_SOIL.get()), RecipeCategory.MISC, ItemRegistry.PAINITE_CRYSTAL.get(), 0.7f, 200, "painite_crystal");
         oreBlasting(pRecipeOutput, List.of(ItemRegistry.DEEPSLATE_DARK_CRYSTAL_ORE.get(), ItemRegistry.DARK_CRYSTAL_ORE.get()), RecipeCategory.MISC, ItemRegistry.DARK_CRYSTAL.get(), 0.7f, 100, "dark_crystal");

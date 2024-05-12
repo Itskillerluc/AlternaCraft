@@ -135,6 +135,13 @@ public class ItemRegistry {
     public static final Supplier<BlockItem> FROZEN_CACTUS = ITEMS.registerSimpleBlockItem(BlockRegistry.FROZEN_CACTUS);
     public static final Supplier<BlockItem> DEEPSLATE_DARK_CRYSTAL_ORE = ITEMS.registerSimpleBlockItem(BlockRegistry.DEEPSLATE_DARK_CRYSTAL_ORE);
     public static final Supplier<BlockItem> DARK_CRYSTAL_ORE = ITEMS.registerSimpleBlockItem(BlockRegistry.DARK_CRYSTAL_ORE);
+    public static final Supplier<BlockItem> STRIPPED_ELECTREE_LOG = ITEMS.registerSimpleBlockItem(BlockRegistry.STRIPPED_ELECTREE_LOG);
+    public static final Supplier<BlockItem> ORANGE_BULB = ITEMS.registerSimpleBlockItem(BlockRegistry.ORANGE_BULB);
+    public static final Supplier<BlockItem> GREEN_ROSE_BULB = ITEMS.registerSimpleBlockItem(BlockRegistry.GREEN_ROSE_BULB);
+    public static final Supplier<BlockItem> ELECTREE_PLANKS = ITEMS.registerSimpleBlockItem(BlockRegistry.ELECTREE_PLANKS);
+    public static final Supplier<BlockItem> ELECTREE_LOG = ITEMS.registerSimpleBlockItem(BlockRegistry.ELECTREE_LOG);
+    public static final Supplier<BlockItem> ELECTREE_LEAVES = ITEMS.registerSimpleBlockItem(BlockRegistry.ELECTREE_LEAVES);
+    public static final Supplier<BlockItem> BLUE_BULB = ITEMS.registerSimpleBlockItem(BlockRegistry.BLUE_BULB);
 
     private static DeferredHolder<Item, ArmorItem> registerArmorWithDescription(String name, ArmorMaterial material, ArmorItem.Type type, Item.Properties properties) {
         return ITEMS.register(name, () -> new ArmorItem(material, type, properties) {

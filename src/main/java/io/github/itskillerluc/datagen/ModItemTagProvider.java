@@ -2,6 +2,7 @@ package io.github.itskillerluc.datagen;
 
 import io.github.itskillerluc.AlternaCraft;
 import io.github.itskillerluc.init.ItemRegistry;
+import io.github.itskillerluc.init.Tags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -20,6 +21,12 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
+        tag(Tags.CHARRED_LOGS)
+                .add(ItemRegistry.CHARRED_BARK.get())
+                .add(ItemRegistry.STRIPPED_CHARRED_BARK.get());
+        tag(Tags.ELECTREE_LOGS)
+                .add(ItemRegistry.ELECTREE_LOG.get())
+                .add(ItemRegistry.STRIPPED_ELECTREE_LOG.get());
         tag(ItemTags.PICKAXES)
                 .add(ItemRegistry.AIO_PICKAXE.value())
                 .add(ItemRegistry.PAINITE_PICKAXE.value())
@@ -76,5 +83,6 @@ public class ModItemTagProvider extends ItemTagsProvider {
         copy(BlockTags.FLOWERS, ItemTags.FLOWERS) ;
         copy(BlockTags.DIRT, ItemTags.DIRT);
         copy(BlockTags.SAND, ItemTags.SAND);
+        copy(BlockTags.LEAVES, ItemTags.LEAVES);
     }
 }
