@@ -1,7 +1,6 @@
 package io.github.itskillerluc.item;
 
 import io.github.itskillerluc.AlternaCraft;
-import io.github.itskillerluc.block.MiningLight;
 import io.github.itskillerluc.init.BlockRegistry;
 import io.github.itskillerluc.init.ToolActions;
 import net.minecraft.ChatFormatting;
@@ -15,6 +14,7 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.common.ToolAction;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -25,12 +25,12 @@ public class CopperwoodPickaxe extends PickaxeItem {
     }
 
     @Override
-    public boolean canPerformAction(ItemStack stack, ToolAction toolAction) {
+    public boolean canPerformAction(@NotNull ItemStack stack, @NotNull ToolAction toolAction) {
         return super.canPerformAction(stack, toolAction) || toolAction.equals(ToolActions.PLACE_LIGHT);
     }
 
     @Override
-    public InteractionResult useOn(UseOnContext pContext) {
+    public @NotNull InteractionResult useOn(@NotNull UseOnContext pContext) {
         InteractionResult result = copperwoodUse(pContext);
         if (result == InteractionResult.PASS) {
             return super.useOn(pContext);
@@ -49,7 +49,7 @@ public class CopperwoodPickaxe extends PickaxeItem {
     }
 
     @Override
-    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
+    public void appendHoverText(@NotNull ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, @NotNull TooltipFlag pIsAdvanced) {
         pTooltipComponents.add(Component.translatable("description." + AlternaCraft.MODID + "." + "copperwood_pickaxe").withStyle(ChatFormatting.GOLD, ChatFormatting.ITALIC));
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }

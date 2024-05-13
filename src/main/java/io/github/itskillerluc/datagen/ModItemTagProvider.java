@@ -10,6 +10,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Block;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
@@ -20,7 +21,32 @@ public class ModItemTagProvider extends ItemTagsProvider {
     }
 
     @Override
-    protected void addTags(HolderLookup.Provider pProvider) {
+    protected void addTags(HolderLookup.@NotNull Provider pProvider) {
+        copy(BlockTags.DIRT, ItemTags.DIRT);
+        copy(BlockTags.FLOWERS, ItemTags.FLOWERS) ;
+        copy(BlockTags.LEAVES, ItemTags.LEAVES);
+        copy(BlockTags.LOGS_THAT_BURN, ItemTags.LOGS_THAT_BURN);
+        copy(BlockTags.PLANKS, ItemTags.PLANKS);
+        copy(BlockTags.SAND, ItemTags.SAND);
+        copy(BlockTags.SMALL_FLOWERS, ItemTags.SMALL_FLOWERS);
+        copy(Tags.Blocks.BLUE_PASTEL_LOGS, Tags.Items.BLUE_PASTEL_LOGS);
+        copy(Tags.Blocks.CHARRED_LOGS, Tags.Items.CHARRED_LOGS);
+        copy(Tags.Blocks.COPPERWOOD_ORES, Tags.Items.COPPERWOOD_ORES);
+        copy(Tags.Blocks.DARK_CRYSTAL_ORES, Tags.Items.DARK_CRYSTAL_ORES);
+        copy(Tags.Blocks.ELECTREE_LOGS, Tags.Items.ELECTREE_LOGS);
+        copy(Tags.Blocks.PAINITE_ORES, Tags.Items.PAINITE_ORES);
+        tag(ItemTags.AXES)
+                .add(ItemRegistry.AIO_AXE.value())
+                .add(ItemRegistry.PAINITE_AXE.value())
+                .add(ItemRegistry.DARK_CRYSTAL_AXE.value())
+                .add(ItemRegistry.COPPERWOOD_AXE.value())
+                .add(ItemRegistry.MAGNETIC_AXE.value());
+        tag(ItemTags.HOES)
+                .add(ItemRegistry.AIO_HOE.value())
+                .add(ItemRegistry.PAINITE_HOE.value())
+                .add(ItemRegistry.DARK_CRYSTAL_HOE.value())
+                .add(ItemRegistry.COPPERWOOD_HOE.value())
+                .add(ItemRegistry.MAGNETIC_HOE.value());
         tag(ItemTags.PICKAXES)
                 .add(ItemRegistry.AIO_PICKAXE.value())
                 .add(ItemRegistry.PAINITE_PICKAXE.value())
@@ -33,24 +59,12 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ItemRegistry.DARK_CRYSTAL_SHOVEL.value())
                 .add(ItemRegistry.COPPERWOOD_SHOVEL.value())
                 .add(ItemRegistry.MAGNETIC_SHOVEL.value());
-        tag(ItemTags.HOES)
-                .add(ItemRegistry.AIO_HOE.value())
-                .add(ItemRegistry.PAINITE_HOE.value())
-                .add(ItemRegistry.DARK_CRYSTAL_HOE.value())
-                .add(ItemRegistry.COPPERWOOD_HOE.value())
-                .add(ItemRegistry.MAGNETIC_HOE.value());
         tag(ItemTags.SWORDS)
                 .add(ItemRegistry.AIO_SWORD.value())
                 .add(ItemRegistry.PAINITE_SWORD.value())
                 .add(ItemRegistry.DARK_CRYSTAL_SWORD.value())
                 .add(ItemRegistry.COPPERWOOD_SWORD.value())
                 .add(ItemRegistry.MAGNETIC_SWORD.value());
-        tag(ItemTags.AXES)
-                .add(ItemRegistry.AIO_AXE.value())
-                .add(ItemRegistry.PAINITE_AXE.value())
-                .add(ItemRegistry.DARK_CRYSTAL_AXE.value())
-                .add(ItemRegistry.COPPERWOOD_AXE.value())
-                .add(ItemRegistry.MAGNETIC_AXE.value());
         tag(ItemTags.TRIMMABLE_ARMOR)
                 .add(ItemRegistry.AIO_HELMET.value())
                 .add(ItemRegistry.PAINITE_HELMET.value())
@@ -72,18 +86,5 @@ public class ModItemTagProvider extends ItemTagsProvider {
                 .add(ItemRegistry.DARK_CRYSTAL_BOOTS.value())
                 .add(ItemRegistry.COPPERWOOD_BOOTS.value())
                 .add(ItemRegistry.MAGNETIC_BOOTS.value());
-        copy(BlockTags.LOGS_THAT_BURN, ItemTags.LOGS_THAT_BURN);
-        copy(BlockTags.PLANKS, ItemTags.PLANKS);
-        copy(BlockTags.FLOWERS, ItemTags.FLOWERS) ;
-        copy(BlockTags.DIRT, ItemTags.DIRT);
-        copy(BlockTags.SAND, ItemTags.SAND);
-        copy(BlockTags.LEAVES, ItemTags.LEAVES);
-        copy(BlockTags.SMALL_FLOWERS, ItemTags.SMALL_FLOWERS);
-        copy(Tags.Blocks.ELECTREE_LOGS, Tags.Items.ELECTREE_LOGS);
-        copy(Tags.Blocks.BLUE_PASTEL_LOGS, Tags.Items.BLUE_PASTEL_LOGS);
-        copy(Tags.Blocks.CHARRED_LOGS, Tags.Items.CHARRED_LOGS);
-        copy(Tags.Blocks.COPPERWOOD_ORES, Tags.Items.COPPERWOOD_ORES);
-        copy(Tags.Blocks.PAINITE_ORES, Tags.Items.PAINITE_ORES);
-        copy(Tags.Blocks.DARK_CRYSTAL_ORES, Tags.Items.DARK_CRYSTAL_ORES);
     }
 }

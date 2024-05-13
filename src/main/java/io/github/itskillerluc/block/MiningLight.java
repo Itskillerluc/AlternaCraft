@@ -6,6 +6,7 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.NotNull;
 
 public class MiningLight extends Block {
     public MiningLight(Properties properties) {
@@ -13,7 +14,7 @@ public class MiningLight extends Block {
     }
 
     @Override
-    public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
+    public void animateTick(@NotNull BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
         double d0 = pPos.getX();
         double d1 = pPos.getY();
         double d2 = pPos.getZ();

@@ -1,7 +1,10 @@
 package io.github.itskillerluc.init;
 
 import io.github.itskillerluc.AlternaCraft;
-import io.github.itskillerluc.block.*;
+import io.github.itskillerluc.block.CoolLavaBlock;
+import io.github.itskillerluc.block.LogBlock;
+import io.github.itskillerluc.block.MiningLight;
+import io.github.itskillerluc.block.RocksBlock;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
 import net.minecraft.util.ColorRGBA;

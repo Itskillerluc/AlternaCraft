@@ -11,6 +11,7 @@ import net.minecraft.world.level.storage.loot.LootContext;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.neoforged.neoforge.common.loot.LootModifier;
 import net.neoforged.neoforge.items.ItemHandlerHelper;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
 
@@ -23,7 +24,7 @@ public class SmeltingLootModifier extends LootModifier {
     }
 
     @Override
-    public ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
+    public @NotNull ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, @NotNull LootContext context) {
         ObjectArrayList<ItemStack> ret = new ObjectArrayList<>();
         generatedLoot.forEach((stack) -> ret.add(smelt(stack, context)));
         return ret;
@@ -38,7 +39,7 @@ public class SmeltingLootModifier extends LootModifier {
     }
 
     @Override
-    public Codec<SmeltingLootModifier> codec() {
+    public @NotNull Codec<SmeltingLootModifier> codec() {
         return CODEC.get();
     }
 }

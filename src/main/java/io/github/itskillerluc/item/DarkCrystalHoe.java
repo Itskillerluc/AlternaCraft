@@ -4,7 +4,6 @@ import com.mojang.datafixers.util.Pair;
 import io.github.itskillerluc.AlternaCraft;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -17,10 +16,8 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.gameevent.GameEvent;
 import net.minecraft.world.phys.BlockHitResult;
-import net.minecraft.world.phys.Vec3;
-import net.neoforged.neoforge.common.ToolActions;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -33,7 +30,7 @@ public class DarkCrystalHoe extends HoeItem {
     }
 
     @Override
-    public InteractionResult useOn(UseOnContext pContext) {
+    public @NotNull InteractionResult useOn(@NotNull UseOnContext pContext) {
         darkCrystalUse(pContext);
         return InteractionResult.SUCCESS;
         //return super.useOn(pContext);
@@ -49,14 +46,12 @@ public class DarkCrystalHoe extends HoeItem {
         }
     }
 
-    public static InteractionResult useHoe(UseOnContext pContext) {
+    public static void useHoe(UseOnContext pContext) {
         Level level = pContext.getLevel();
         BlockPos blockpos = pContext.getClickedPos();
         BlockState toolModifiedState = level.getBlockState(blockpos).getToolModifiedState(pContext, net.neoforged.neoforge.common.ToolActions.HOE_TILL, false);
         Pair<Predicate<UseOnContext>, Consumer<UseOnContext>> pair = toolModifiedState == null ? null : Pair.of(ctx -> true, changeIntoState(toolModifiedState));
-        if (pair == null) {
-            return InteractionResult.PASS;
-        } else {
+        if (pair != null) {
             Predicate<UseOnContext> predicate = pair.getFirst();
             Consumer<UseOnContext> consumer = pair.getSecond();
             if (predicate.test(pContext)) {
@@ -70,30 +65,12 @@ public class DarkCrystalHoe extends HoeItem {
                     }
                 }
 
-                return InteractionResult.sidedSuccess(level.isClientSide);
-            } else {
-                return InteractionResult.PASS;
-            }
-        }
-    }
-
-    private static void useHoe(UseOnContext pContext, BlockPos blockPos) {
-        BlockState toolModifiedState = pContext.getLevel().getBlockState(blockPos).getToolModifiedState(pContext, ToolActions.HOE_TILL, false);
-        Pair<Predicate<UseOnContext>, Consumer<UseOnContext>> pair = toolModifiedState == null ? null : Pair.of(ctx -> true, changeIntoState(toolModifiedState));
-        if (pair != null) {
-            Predicate<UseOnContext> predicate = pair.getFirst();
-            Consumer<UseOnContext> consumer = pair.getSecond();
-            if (predicate.test(pContext)) {
-                if (!pContext.getLevel().isClientSide) {
-                    pContext.getLevel().setBlock(blockPos, toolModifiedState, 11);
-                    pContext.getLevel().gameEvent(GameEvent.BLOCK_CHANGE, blockPos, GameEvent.Context.of(pContext.getPlayer(), toolModifiedState));
-                }
             }
         }
     }
 
     @Override
-    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
+    public void appendHoverText(@NotNull ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, @NotNull TooltipFlag pIsAdvanced) {
         pTooltipComponents.add(Component.translatable("description." + AlternaCraft.MODID + "." + "dark_crystal_hoe").withStyle(ChatFormatting.GOLD, ChatFormatting.ITALIC));
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }

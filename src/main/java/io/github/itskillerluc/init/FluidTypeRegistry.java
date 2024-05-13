@@ -1,19 +1,15 @@
 package io.github.itskillerluc.init;
 
 import io.github.itskillerluc.AlternaCraft;
-import net.minecraft.core.particles.ParticleTypes;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.PointedDripstoneBlock;
-import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.pathfinder.BlockPathTypes;
 import net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.neoforged.neoforge.common.SoundActions;
 import net.neoforged.neoforge.fluids.FluidType;
 import net.neoforged.neoforge.registries.DeferredRegister;
 import net.neoforged.neoforge.registries.NeoForgeRegistries;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Consumer;
 import java.util.function.Supplier;
@@ -35,16 +31,16 @@ public class FluidTypeRegistry {
                     .viscosity(6000)
                     .temperature(500)) {
 
-                public void initializeClient(Consumer<IClientFluidTypeExtensions> consumer) {
+                public void initializeClient(@NotNull Consumer<IClientFluidTypeExtensions> consumer) {
                     consumer.accept(new IClientFluidTypeExtensions() {
                         private static final ResourceLocation COOL_LAVA_STILL = new ResourceLocation(AlternaCraft.MODID, "block/cool_lava_still");
                         private static final ResourceLocation COOL_LAVA_FLOWING = new ResourceLocation(AlternaCraft.MODID, "block/cool_lava_flowing");
 
-                        public ResourceLocation getStillTexture() {
+                        public @NotNull ResourceLocation getStillTexture() {
                             return COOL_LAVA_STILL;
                         }
 
-                        public ResourceLocation getFlowingTexture() {
+                        public @NotNull ResourceLocation getFlowingTexture() {
                             return COOL_LAVA_FLOWING;
                         }
                     });

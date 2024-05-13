@@ -13,7 +13,6 @@ public class ModDataMapProvider extends DataMapProvider {
     protected ModDataMapProvider(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> lookupProvider) {
         super(packOutput, lookupProvider);
     }
-
     @Override
     protected void gather() {
         builder(NeoForgeDataMaps.FURNACE_FUELS)

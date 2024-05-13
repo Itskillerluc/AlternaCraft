@@ -1,10 +1,8 @@
 package io.github.itskillerluc.item;
 
 import io.github.itskillerluc.AlternaCraft;
-import io.github.itskillerluc.init.BlockRegistry;
 import io.github.itskillerluc.init.ToolActions;
 import net.minecraft.ChatFormatting;
-import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -17,6 +15,7 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.common.ToolAction;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
@@ -27,12 +26,12 @@ public class AIOPickaxe extends PickaxeItem {
     }
 
     @Override
-    public boolean canPerformAction(ItemStack stack, ToolAction toolAction) {
+    public boolean canPerformAction(@NotNull ItemStack stack, @NotNull ToolAction toolAction) {
         return super.canPerformAction(stack, toolAction) || toolAction.equals(ToolActions.PLACE_LIGHT) || toolAction.equals(ToolActions.SONAR);
     }
 
     @Override
-    public InteractionResult useOn(UseOnContext pContext) {
+    public @NotNull InteractionResult useOn(UseOnContext pContext) {
         if (pContext.getPlayer() == null) return InteractionResult.PASS;
         if (!pContext.getPlayer().isShiftKeyDown()) {
             return CopperwoodPickaxe.copperwoodUse(pContext);
@@ -41,7 +40,7 @@ public class AIOPickaxe extends PickaxeItem {
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
+    public @NotNull InteractionResultHolder<ItemStack> use(@NotNull Level pLevel, Player pPlayer, @NotNull InteractionHand pUsedHand) {
         if (pPlayer.isShiftKeyDown()) {
             DarkCrystalPickaxe.darkCrystalUse(pLevel, pPlayer, pUsedHand);
         }
@@ -49,7 +48,7 @@ public class AIOPickaxe extends PickaxeItem {
     }
 
     @Override
-    public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
+    public void appendHoverText(@NotNull ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, @NotNull TooltipFlag pIsAdvanced) {
         pTooltipComponents.add(Component.translatable("description." + AlternaCraft.MODID + "." + "aio_pickaxe").withStyle(ChatFormatting.GOLD, ChatFormatting.ITALIC));
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }

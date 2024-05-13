@@ -2,7 +2,6 @@ package io.github.itskillerluc.datagen;
 
 import io.github.itskillerluc.AlternaCraft;
 import io.github.itskillerluc.init.ItemRegistry;
-import net.minecraft.core.Holder;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -24,38 +23,38 @@ import java.util.function.Supplier;
 public class ModItemModelProvider extends ItemModelProvider {
     private static final LinkedHashMap<ResourceKey<TrimMaterial>, Float> trimMaterials = new LinkedHashMap<>();
     static {
-        trimMaterials.put(TrimMaterials.QUARTZ, 0.1F);
-        trimMaterials.put(TrimMaterials.IRON, 0.2F);
-        trimMaterials.put(TrimMaterials.NETHERITE, 0.3F);
-        trimMaterials.put(TrimMaterials.REDSTONE, 0.4F);
-        trimMaterials.put(TrimMaterials.COPPER, 0.5F);
-        trimMaterials.put(TrimMaterials.GOLD, 0.6F);
-        trimMaterials.put(TrimMaterials.EMERALD, 0.7F);
-        trimMaterials.put(TrimMaterials.DIAMOND, 0.8F);
-        trimMaterials.put(TrimMaterials.LAPIS, 0.9F);
         trimMaterials.put(TrimMaterials.AMETHYST, 1.0F);
+        trimMaterials.put(TrimMaterials.COPPER, 0.5F);
+        trimMaterials.put(TrimMaterials.DIAMOND, 0.8F);
+        trimMaterials.put(TrimMaterials.EMERALD, 0.7F);
+        trimMaterials.put(TrimMaterials.GOLD, 0.6F);
+        trimMaterials.put(TrimMaterials.IRON, 0.2F);
+        trimMaterials.put(TrimMaterials.LAPIS, 0.9F);
+        trimMaterials.put(TrimMaterials.NETHERITE, 0.3F);
+        trimMaterials.put(TrimMaterials.QUARTZ, 0.1F);
+        trimMaterials.put(TrimMaterials.REDSTONE, 0.4F);
     }
     private static final List<Supplier<? extends Item>> EXCLUDED = List.of(
-            ItemRegistry.AIO_HELMET,
-            ItemRegistry.AIO_CHESTPLATE,
-            ItemRegistry.AIO_LEGGINGS,
             ItemRegistry.AIO_BOOTS,
-            ItemRegistry.COPPERWOOD_HELMET,
-            ItemRegistry.COPPERWOOD_CHESTPLATE,
-            ItemRegistry.COPPERWOOD_LEGGINGS,
+            ItemRegistry.AIO_CHESTPLATE,
+            ItemRegistry.AIO_HELMET,
+            ItemRegistry.AIO_LEGGINGS,
             ItemRegistry.COPPERWOOD_BOOTS,
-            ItemRegistry.DARK_CRYSTAL_HELMET,
-            ItemRegistry.DARK_CRYSTAL_CHESTPLATE,
-            ItemRegistry.DARK_CRYSTAL_LEGGINGS,
+            ItemRegistry.COPPERWOOD_CHESTPLATE,
+            ItemRegistry.COPPERWOOD_HELMET,
+            ItemRegistry.COPPERWOOD_LEGGINGS,
             ItemRegistry.DARK_CRYSTAL_BOOTS,
-            ItemRegistry.MAGNETIC_HELMET,
-            ItemRegistry.MAGNETIC_CHESTPLATE,
-            ItemRegistry.MAGNETIC_LEGGINGS,
+            ItemRegistry.DARK_CRYSTAL_CHESTPLATE,
+            ItemRegistry.DARK_CRYSTAL_HELMET,
+            ItemRegistry.DARK_CRYSTAL_LEGGINGS,
             ItemRegistry.MAGNETIC_BOOTS,
-            ItemRegistry.PAINITE_HELMET,
+            ItemRegistry.MAGNETIC_CHESTPLATE,
+            ItemRegistry.MAGNETIC_HELMET,
+            ItemRegistry.MAGNETIC_LEGGINGS,
+            ItemRegistry.PAINITE_BOOTS,
             ItemRegistry.PAINITE_CHESTPLATE,
-            ItemRegistry.PAINITE_LEGGINGS,
-            ItemRegistry.PAINITE_BOOTS
+            ItemRegistry.PAINITE_HELMET,
+            ItemRegistry.PAINITE_LEGGINGS
     );
 
     public ModItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
@@ -68,52 +67,52 @@ public class ModItemModelProvider extends ItemModelProvider {
             if (EXCLUDED.contains(entry) || entry.get() instanceof BlockItem) continue;
             basicItem(entry.get());
         }
-        withExistingParent("alternacraft:aio_sword", "minecraft:item/handheld");
-        withExistingParent("alternacraft:aio_scythe", "minecraft:item/handheld");
-        withExistingParent("alternacraft:aio_pickaxe", "minecraft:item/handheld");
         withExistingParent("alternacraft:aio_axe", "minecraft:item/handheld");
+        withExistingParent("alternacraft:aio_pickaxe", "minecraft:item/handheld");
+        withExistingParent("alternacraft:aio_scythe", "minecraft:item/handheld");
         withExistingParent("alternacraft:aio_shovel", "minecraft:item/handheld");
-        withExistingParent("alternacraft:painite_sword", "minecraft:item/handheld");
-        withExistingParent("alternacraft:painite_scythe", "minecraft:item/handheld");
-        withExistingParent("alternacraft:painite_pickaxe", "minecraft:item/handheld");
-        withExistingParent("alternacraft:painite_axe", "minecraft:item/handheld");
-        withExistingParent("alternacraft:painite_shovel", "minecraft:item/handheld");
-        withExistingParent("alternacraft:magnetic_sword", "minecraft:item/handheld");
-        withExistingParent("alternacraft:magnetic_hoe", "minecraft:item/handheld");
-        withExistingParent("alternacraft:magnetic_shovel", "minecraft:item/handheld");
-        withExistingParent("alternacraft:magnetic_pickaxe", "minecraft:item/handheld");
-        withExistingParent("alternacraft:magnetic_axe", "minecraft:item/handheld");
-        withExistingParent("alternacraft:dark_crystal_sword", "minecraft:item/handheld");
-        withExistingParent("alternacraft:dark_crystal_hoe", "minecraft:item/handheld");
-        withExistingParent("alternacraft:dark_crystal_pickaxe", "minecraft:item/handheld");
-        withExistingParent("alternacraft:dark_crystal_axe", "minecraft:item/handheld");
-        withExistingParent("alternacraft:dark_crystal_shovel", "minecraft:item/handheld");
-        withExistingParent("alternacraft:copperwood_sword", "minecraft:item/handheld");
-        withExistingParent("alternacraft:copperwood_pickaxe", "minecraft:item/handheld");
+        withExistingParent("alternacraft:aio_sword", "minecraft:item/handheld");
         withExistingParent("alternacraft:copperwood_axe", "minecraft:item/handheld");
         withExistingParent("alternacraft:copperwood_hoe", "minecraft:item/handheld");
+        withExistingParent("alternacraft:copperwood_pickaxe", "minecraft:item/handheld");
         withExistingParent("alternacraft:copperwood_shovel", "minecraft:item/handheld");
+        withExistingParent("alternacraft:copperwood_sword", "minecraft:item/handheld");
+        withExistingParent("alternacraft:dark_crystal_axe", "minecraft:item/handheld");
+        withExistingParent("alternacraft:dark_crystal_hoe", "minecraft:item/handheld");
+        withExistingParent("alternacraft:dark_crystal_pickaxe", "minecraft:item/handheld");
+        withExistingParent("alternacraft:dark_crystal_shovel", "minecraft:item/handheld");
+        withExistingParent("alternacraft:dark_crystal_sword", "minecraft:item/handheld");
+        withExistingParent("alternacraft:magnetic_axe", "minecraft:item/handheld");
+        withExistingParent("alternacraft:magnetic_hoe", "minecraft:item/handheld");
+        withExistingParent("alternacraft:magnetic_pickaxe", "minecraft:item/handheld");
+        withExistingParent("alternacraft:magnetic_shovel", "minecraft:item/handheld");
+        withExistingParent("alternacraft:magnetic_sword", "minecraft:item/handheld");
+        withExistingParent("alternacraft:painite_axe", "minecraft:item/handheld");
+        withExistingParent("alternacraft:painite_pickaxe", "minecraft:item/handheld");
+        withExistingParent("alternacraft:painite_scythe", "minecraft:item/handheld");
+        withExistingParent("alternacraft:painite_shovel", "minecraft:item/handheld");
+        withExistingParent("alternacraft:painite_sword", "minecraft:item/handheld");
 
-        trimmedArmorItem(ItemRegistry.AIO_HELMET);
-        trimmedArmorItem(ItemRegistry.AIO_CHESTPLATE);
-        trimmedArmorItem(ItemRegistry.AIO_LEGGINGS);
         trimmedArmorItem(ItemRegistry.AIO_BOOTS);
-        trimmedArmorItem(ItemRegistry.COPPERWOOD_HELMET);
-        trimmedArmorItem(ItemRegistry.COPPERWOOD_CHESTPLATE);
-        trimmedArmorItem(ItemRegistry.COPPERWOOD_LEGGINGS);
+        trimmedArmorItem(ItemRegistry.AIO_CHESTPLATE);
+        trimmedArmorItem(ItemRegistry.AIO_HELMET);
+        trimmedArmorItem(ItemRegistry.AIO_LEGGINGS);
         trimmedArmorItem(ItemRegistry.COPPERWOOD_BOOTS);
-        trimmedArmorItem(ItemRegistry.DARK_CRYSTAL_HELMET);
-        trimmedArmorItem(ItemRegistry.DARK_CRYSTAL_CHESTPLATE);
-        trimmedArmorItem(ItemRegistry.DARK_CRYSTAL_LEGGINGS);
+        trimmedArmorItem(ItemRegistry.COPPERWOOD_CHESTPLATE);
+        trimmedArmorItem(ItemRegistry.COPPERWOOD_HELMET);
+        trimmedArmorItem(ItemRegistry.COPPERWOOD_LEGGINGS);
         trimmedArmorItem(ItemRegistry.DARK_CRYSTAL_BOOTS);
-        trimmedArmorItem(ItemRegistry.PAINITE_HELMET);
-        trimmedArmorItem(ItemRegistry.PAINITE_CHESTPLATE);
-        trimmedArmorItem(ItemRegistry.PAINITE_LEGGINGS);
-        trimmedArmorItem(ItemRegistry.PAINITE_BOOTS);
-        trimmedArmorItem(ItemRegistry.MAGNETIC_HELMET);
-        trimmedArmorItem(ItemRegistry.MAGNETIC_CHESTPLATE);
-        trimmedArmorItem(ItemRegistry.MAGNETIC_LEGGINGS);
+        trimmedArmorItem(ItemRegistry.DARK_CRYSTAL_CHESTPLATE);
+        trimmedArmorItem(ItemRegistry.DARK_CRYSTAL_HELMET);
+        trimmedArmorItem(ItemRegistry.DARK_CRYSTAL_LEGGINGS);
         trimmedArmorItem(ItemRegistry.MAGNETIC_BOOTS);
+        trimmedArmorItem(ItemRegistry.MAGNETIC_CHESTPLATE);
+        trimmedArmorItem(ItemRegistry.MAGNETIC_HELMET);
+        trimmedArmorItem(ItemRegistry.MAGNETIC_LEGGINGS);
+        trimmedArmorItem(ItemRegistry.PAINITE_BOOTS);
+        trimmedArmorItem(ItemRegistry.PAINITE_CHESTPLATE);
+        trimmedArmorItem(ItemRegistry.PAINITE_HELMET);
+        trimmedArmorItem(ItemRegistry.PAINITE_LEGGINGS);
     }
 
     private void trimmedArmorItem(DeferredHolder<Item, ? extends Item> item) {

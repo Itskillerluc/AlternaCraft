@@ -17,9 +17,11 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraft.world.level.material.FluidState;
 import net.neoforged.neoforge.fluids.BaseFlowingFluid;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 
+@SuppressWarnings("deprecation")
 public abstract class CoolLavaFluid extends BaseFlowingFluid {
 
     protected CoolLavaFluid(Properties properties) {
@@ -27,7 +29,7 @@ public abstract class CoolLavaFluid extends BaseFlowingFluid {
     }
 
     @Override
-    public void animateTick(Level pLevel, BlockPos pPos, FluidState pState, RandomSource pRandom) {
+    public void animateTick(Level pLevel, BlockPos pPos, @NotNull FluidState pState, @NotNull RandomSource pRandom) {
         BlockPos blockpos = pPos.above();
         if (pLevel.getBlockState(blockpos).isAir() && !pLevel.getBlockState(blockpos).isSolidRender(pLevel, blockpos)) {
             if (pRandom.nextInt(100) == 0) {
@@ -42,9 +44,9 @@ public abstract class CoolLavaFluid extends BaseFlowingFluid {
 
             if (pRandom.nextInt(200) == 0) {
                 pLevel.playLocalSound(
-                        (double)pPos.getX(),
-                        (double)pPos.getY(),
-                        (double)pPos.getZ(),
+                        pPos.getX(),
+                        pPos.getY(),
+                        pPos.getZ(),
                         SoundEvents.LAVA_AMBIENT,
                         SoundSource.BLOCKS,
                         0.2F + pRandom.nextFloat() * 0.2F,
@@ -56,7 +58,7 @@ public abstract class CoolLavaFluid extends BaseFlowingFluid {
     }
 
     @Override
-    public void randomTick(Level pLevel, BlockPos pPos, FluidState pState, RandomSource pRandom) {
+    public void randomTick(Level pLevel, @NotNull BlockPos pPos, @NotNull FluidState pState, @NotNull RandomSource pRandom) {
         if (pLevel.getGameRules().getBoolean(GameRules.RULE_DOFIRETICK)) {
             int i = pRandom.nextInt(3);
             if (i > 0) {
@@ -118,7 +120,7 @@ public abstract class CoolLavaFluid extends BaseFlowingFluid {
     }
 
     @Override
-    protected void beforeDestroyingBlock(LevelAccessor pLevel, BlockPos pPos, BlockState pState) {
+    protected void beforeDestroyingBlock(@NotNull LevelAccessor pLevel, @NotNull BlockPos pPos, @NotNull BlockState pState) {
         this.fizz(pLevel, pPos);
     }
 
@@ -129,7 +131,7 @@ public abstract class CoolLavaFluid extends BaseFlowingFluid {
     }
 
     @Override
-    public int getSpreadDelay(Level pLevel, BlockPos pPos, FluidState pCurrentState, FluidState pNewState) {
+    public int getSpreadDelay(@NotNull Level pLevel, @NotNull BlockPos pPos, FluidState pCurrentState, @NotNull FluidState pNewState) {
         int i = this.getTickDelay(pLevel);
         if (!pCurrentState.isEmpty()
                 && !pNewState.isEmpty()
@@ -163,7 +165,7 @@ public abstract class CoolLavaFluid extends BaseFlowingFluid {
             registerDefaultState(getStateDefinition().any().setValue(LEVEL, 7));
         }
 
-        protected void createFluidStateDefinition(StateDefinition.Builder<Fluid, FluidState> builder) {
+        protected void createFluidStateDefinition(StateDefinition.@NotNull Builder<Fluid, FluidState> builder) {
             super.createFluidStateDefinition(builder);
             builder.add(LEVEL);
         }
@@ -172,7 +174,7 @@ public abstract class CoolLavaFluid extends BaseFlowingFluid {
             return state.getValue(LEVEL);
         }
 
-        public boolean isSource(FluidState state) {
+        public boolean isSource(@NotNull FluidState state) {
             return false;
         }
     }
@@ -182,11 +184,11 @@ public abstract class CoolLavaFluid extends BaseFlowingFluid {
             super(properties);
         }
 
-        public int getAmount(FluidState state) {
+        public int getAmount(@NotNull FluidState state) {
             return 8;
         }
 
-        public boolean isSource(FluidState state) {
+        public boolean isSource(@NotNull FluidState state) {
             return true;
         }
     }
