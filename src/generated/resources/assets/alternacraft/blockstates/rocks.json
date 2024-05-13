@@ -1,0 +1,51 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "alternacraft:block/rocks_0"
+      },
+      {
+        "model": "alternacraft:block/rocks_0",
+        "y": 90
+      },
+      {
+        "model": "alternacraft:block/rocks_0",
+        "y": 180
+      },
+      {
+        "model": "alternacraft:block/rocks_0",
+        "y": 270
+      },
+      {
+        "model": "alternacraft:block/rocks_1"
+      },
+      {
+        "model": "alternacraft:block/rocks_1",
+        "y": 90
+      },
+      {
+        "model": "alternacraft:block/rocks_1",
+        "y": 180
+      },
+      {
+        "model": "alternacraft:block/rocks_1",
+        "y": 270
+      },
+      {
+        "model": "alternacraft:block/rocks_2"
+      },
+      {
+        "model": "alternacraft:block/rocks_2",
+        "y": 90
+      },
+      {
+        "model": "alternacraft:block/rocks_2",
+        "y": 180
+      },
+      {
+        "model": "alternacraft:block/rocks_2",
+        "y": 270
+      }
+    ]
+  }
+}

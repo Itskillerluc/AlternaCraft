@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "alternacraft:block/mossy_dirt"
+      },
+      {
+        "model": "alternacraft:block/mossy_dirt",
+        "y": 90
+      },
+      {
+        "model": "alternacraft:block/mossy_dirt",
+        "y": 180
+      },
+      {
+        "model": "alternacraft:block/mossy_dirt",
+        "y": 270
+      }
+    ]
+  }
+}

@@ -11,11 +11,11 @@ import net.neoforged.neoforge.common.TierSortingRegistry;
 import java.util.List;
 
 public class ToolTiers {
-    public static final Tier AIO_TIER = new SimpleTier(6, 4269, 15, 7, 25, Tags.NEEDS_AIO_TOOL, () -> Ingredient.of(ItemRegistry.AIO_CRYSTAL.get()));
-    public static final Tier COPPERWOOD_TIER = new SimpleTier(5, 2407, 10, 5, 15, Tags.NEEDS_DARK_CRYSTAL_TOOL, () -> Ingredient.of(ItemRegistry.COPPERWOOD_CRYSTAL.get()));
-    public static final Tier MAGNETIC_TIER = new SimpleTier(5, 2809, 12, 5, 15, Tags.NEEDS_DARK_CRYSTAL_TOOL, () -> Ingredient.of(ItemRegistry.MAGNETIC_CRYSTAL.get()));
-    public static final Tier PAINITE_TIER = new SimpleTier(5, 3100, 9, 5, 20, Tags.NEEDS_DARK_CRYSTAL_TOOL, () -> Ingredient.of(ItemRegistry.PAINITE_CRYSTAL.get()));
-    public static final Tier DARK_CRYSTAL_TIER = new SimpleTier(5, 2600, 10, 6, 15, Tags.NEEDS_DARK_CRYSTAL_TOOL, () -> Ingredient.of(ItemRegistry.DARK_CRYSTAL.get()));
+    public static final Tier AIO_TIER = new SimpleTier(6, 4269, 15, 7, 25, Tags.Blocks.NEEDS_AIO_TOOL, () -> Ingredient.of(ItemRegistry.AIO_CRYSTAL.get()));
+    public static final Tier COPPERWOOD_TIER = new SimpleTier(5, 2407, 10, 5, 15, Tags.Blocks.NEEDS_DARK_CRYSTAL_TOOL, () -> Ingredient.of(ItemRegistry.COPPERWOOD_CRYSTAL.get()));
+    public static final Tier MAGNETIC_TIER = new SimpleTier(5, 2809, 12, 5, 15, Tags.Blocks.NEEDS_DARK_CRYSTAL_TOOL, () -> Ingredient.of(ItemRegistry.MAGNETIC_CRYSTAL.get()));
+    public static final Tier PAINITE_TIER = new SimpleTier(5, 3100, 9, 5, 20, Tags.Blocks.NEEDS_DARK_CRYSTAL_TOOL, () -> Ingredient.of(ItemRegistry.PAINITE_CRYSTAL.get()));
+    public static final Tier DARK_CRYSTAL_TIER = new SimpleTier(5, 2600, 10, 6, 15, Tags.Blocks.NEEDS_DARK_CRYSTAL_TOOL, () -> Ingredient.of(ItemRegistry.DARK_CRYSTAL.get()));
 
     static {
         TierSortingRegistry.registerTier(

@@ -1,0 +1,35 @@
+{
+  "elements": [
+    {
+      "faces": {
+        "down": {
+          "texture": "#rock",
+          "uv": [
+            0.0,
+            16.0,
+            16.0,
+            0.0
+          ]
+        },
+        "up": {
+          "texture": "#rock"
+        }
+      },
+      "from": [
+        0,
+        0,
+        0
+      ],
+      "to": [
+        16,
+        0.1,
+        16
+      ]
+    }
+  ],
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "particle": "alternacraft:block/rocks_0",
+    "rock": "alternacraft:block/rocks_0"
+  }
+}

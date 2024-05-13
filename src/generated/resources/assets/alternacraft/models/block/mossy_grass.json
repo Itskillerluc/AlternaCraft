@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "alternacraft:block/mossy_dirt",
+    "side": "alternacraft:block/mossy_grass_side",
+    "top": "alternacraft:block/mossy_grass"
+  }
+}

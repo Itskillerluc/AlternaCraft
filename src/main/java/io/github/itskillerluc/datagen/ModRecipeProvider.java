@@ -160,12 +160,25 @@ public class ModRecipeProvider extends RecipeProvider {
         oneToOneConversionRecipe(pRecipeOutput, Items.ORANGE_DYE, ItemRegistry.ORANGE_BULB.get(), "orange_dye");
         oneToOneConversionRecipe(pRecipeOutput, Items.BLUE_DYE, ItemRegistry.BLUE_BULB.get(), "blue_dye");
         oneToOneConversionRecipe(pRecipeOutput, Items.LIME_DYE, ItemRegistry.GREEN_ROSE_BULB.get(), "lime_dye");
-        planksFromLog(pRecipeOutput, ItemRegistry.CHARRED_PLANKS.get(), Tags.CHARRED_LOGS, 4);
-        planksFromLog(pRecipeOutput, ItemRegistry.ELECTREE_PLANKS.get(), Tags.ELECTREE_LOGS, 4);
+        oneToOneConversionRecipe(pRecipeOutput, Items.BLUE_DYE, ItemRegistry.BLUE_COLORFUL_FLOWER.get(), "blue_dye");
+        oneToOneConversionRecipe(pRecipeOutput, Items.CYAN_DYE, ItemRegistry.CYAN_COLORFUL_FLOWER.get(), "cyan_dye");
+        oneToOneConversionRecipe(pRecipeOutput, Items.GREEN_DYE, ItemRegistry.GREEN_COLORFUL_FLOWER.get(), "green_dye");
+        oneToOneConversionRecipe(pRecipeOutput, Items.LIME_DYE, ItemRegistry.LIME_COLORFUL_FLOWER.get(), "lime_dye");
+        oneToOneConversionRecipe(pRecipeOutput, Items.MAGENTA_DYE, ItemRegistry.MAGENTA_COLORFUL_FLOWER.get(), "magenta_dye");
+        oneToOneConversionRecipe(pRecipeOutput, Items.ORANGE_DYE, ItemRegistry.ORANGE_COLORFUL_FLOWER.get(), "orange_dye");
+        oneToOneConversionRecipe(pRecipeOutput, Items.PINK_DYE, ItemRegistry.PINK_COLORFUL_FLOWER.get(), "pink_dye");
+        oneToOneConversionRecipe(pRecipeOutput, Items.PURPLE_DYE, ItemRegistry.PURPLE_COLORFUL_FLOWER.get(), "purple_dye");
+        oneToOneConversionRecipe(pRecipeOutput, Items.YELLOW_DYE, ItemRegistry.YELLOW_COLORFUL_FLOWER.get(), "yellow_dye");
+        planksFromLog(pRecipeOutput, ItemRegistry.CHARRED_PLANKS.get(), Tags.Items.CHARRED_LOGS, 4);
+        planksFromLog(pRecipeOutput, ItemRegistry.ELECTREE_PLANKS.get(), Tags.Items.ELECTREE_LOGS, 4);
+        planksFromLog(pRecipeOutput, ItemRegistry.BLUE_PASTEL_PLANKS.get(), Tags.Items.BLUE_PASTEL_LOGS, 4);
+        planksFromLog(pRecipeOutput, ItemRegistry.RED_PASTEL_PLANKS.get(), Tags.Items.RED_PASTEL_LOGS, 4);
         oreBlasting(pRecipeOutput, List.of(ItemRegistry.PAINITE_ORE_SOIL.get()), RecipeCategory.MISC, ItemRegistry.PAINITE_CRYSTAL.get(), 0.7f, 100, "painite_crystal");
         oreSmelting(pRecipeOutput, List.of(ItemRegistry.PAINITE_ORE_SOIL.get()), RecipeCategory.MISC, ItemRegistry.PAINITE_CRYSTAL.get(), 0.7f, 200, "painite_crystal");
         oreBlasting(pRecipeOutput, List.of(ItemRegistry.DEEPSLATE_DARK_CRYSTAL_ORE.get(), ItemRegistry.DARK_CRYSTAL_ORE.get()), RecipeCategory.MISC, ItemRegistry.DARK_CRYSTAL.get(), 0.7f, 100, "dark_crystal");
         oreSmelting(pRecipeOutput, List.of(ItemRegistry.DEEPSLATE_DARK_CRYSTAL_ORE.get(), ItemRegistry.DARK_CRYSTAL_ORE.get()), RecipeCategory.MISC, ItemRegistry.DARK_CRYSTAL.get(), 0.7f, 200, "dark_crystal");
+        oreBlasting(pRecipeOutput, List.of(ItemRegistry.DEEPSLATE_COPPERWOOD_ORE.get(), ItemRegistry.COPPERWOOD_ORE.get()), RecipeCategory.MISC, ItemRegistry.COPPERWOOD_CRYSTAL.get(), 0.7f, 100, "copperwood_crystal");
+        oreSmelting(pRecipeOutput, List.of(ItemRegistry.DEEPSLATE_COPPERWOOD_ORE.get(), ItemRegistry.COPPERWOOD_ORE.get()), RecipeCategory.MISC, ItemRegistry.COPPERWOOD_CRYSTAL.get(), 0.7f, 200, "copperwood_crystal");
     }
 
     private static void pickaxe(ItemLike result, ItemLike material, RecipeOutput recipeOutput) {

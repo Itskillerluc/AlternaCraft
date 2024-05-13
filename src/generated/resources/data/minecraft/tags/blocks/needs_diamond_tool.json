@@ -1,5 +1,9 @@
 {
   "values": [
-    "alternacraft:painite_ore_soil"
+    "alternacraft:painite_ore_soil",
+    "alternacraft:copperwood_ore",
+    "alternacraft:deepslate_copperwood_ore",
+    "alternacraft:dark_crystal_ore",
+    "alternacraft:deepslate_dark_crystal_ore"
   ]
 }

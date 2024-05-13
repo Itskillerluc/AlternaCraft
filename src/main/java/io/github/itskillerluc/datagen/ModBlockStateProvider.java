@@ -2,15 +2,16 @@ package io.github.itskillerluc.datagen;
 
 import io.github.itskillerluc.AlternaCraft;
 import io.github.itskillerluc.init.BlockRegistry;
+import net.minecraft.core.Direction;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
-import net.neoforged.neoforge.client.model.generators.BlockModelBuilder;
-import net.neoforged.neoforge.client.model.generators.BlockModelProvider;
-import net.neoforged.neoforge.client.model.generators.BlockStateProvider;
+import net.minecraft.world.level.block.PinkPetalsBlock;
+import net.neoforged.neoforge.client.model.generators.*;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.registries.DeferredHolder;
+import org.apache.commons.lang3.ArrayUtils;
 
 import java.util.List;
 import java.util.function.Supplier;
@@ -30,7 +31,27 @@ public class ModBlockStateProvider extends BlockStateProvider {
             BlockRegistry.BLUE_BULB,
             BlockRegistry.ELECTREE_LEAVES,
             BlockRegistry.ORANGE_BULB,
-            BlockRegistry.GREEN_ROSE_BULB
+            BlockRegistry.GREEN_ROSE_BULB,
+            BlockRegistry.BLUE_COLORFUL_FLOWER,
+            BlockRegistry.BLUE_PASTEL_LEAVES,
+            BlockRegistry.BLUE_PASTEL_LOG,
+            BlockRegistry.RED_PASTEL_LOG,
+            BlockRegistry.GREEN_COLORFUL_FLOWER,
+            BlockRegistry.LIME_COLORFUL_FLOWER,
+            BlockRegistry.MAGENTA_COLORFUL_FLOWER,
+            BlockRegistry.MOSSY_GRASS,
+            BlockRegistry.ORANGE_COLORFUL_FLOWER,
+            BlockRegistry.PINK_COLORFUL_FLOWER,
+            BlockRegistry.PURPLE_COLORFUL_FLOWER,
+            BlockRegistry.RED_PASTEL_LEAVES,
+            BlockRegistry.ROCKS,
+            BlockRegistry.STRIPPED_BLUE_PASTEL_LOG,
+            BlockRegistry.STRIPPED_RED_PASTEL_LOG,
+            BlockRegistry.YELLOW_COLORFUL_FLOWER,
+            BlockRegistry.BLUE_PASTEL_PETALS,
+            BlockRegistry.RED_PASTEL_PETALS,
+            BlockRegistry.CYAN_COLORFUL_FLOWER,
+            BlockRegistry.MOSSY_DIRT
     );
 
     public ModBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {
@@ -44,6 +65,34 @@ public class ModBlockStateProvider extends BlockStateProvider {
             simpleBlockWithItem(entry.get(), cubeAll(entry.get()));
         }
         simpleBlockWithItem(BlockRegistry.ELECTREE_LEAVES.get(), models().cubeAll("electree_leaves", new ResourceLocation(AlternaCraft.MODID, "block/electree_leaves")).renderType("minecraft:cutout"));
+        simpleBlockWithItem(BlockRegistry.BLUE_PASTEL_LEAVES.get(), models().cubeAll("blue_pastel_leaves", new ResourceLocation(AlternaCraft.MODID, "block/blue_pastel_leaves")).renderType("minecraft:cutout"));
+        simpleBlockWithItem(BlockRegistry.RED_PASTEL_LEAVES.get(), models().cubeAll("red_pastel_leaves", new ResourceLocation(AlternaCraft.MODID, "block/red_pastel_leaves")).renderType("minecraft:cutout"));
+
+        petals("blue_pastel_petals", BlockRegistry.BLUE_PASTEL_PETALS.get());
+        simpleBlockItem(BlockRegistry.BLUE_PASTEL_PETALS.get(), itemModels().basicItem(new ResourceLocation(AlternaCraft.MODID, "blue_pastel_petals_item")));
+        petals("red_pastel_petals", BlockRegistry.RED_PASTEL_PETALS.get());
+        simpleBlockItem(BlockRegistry.RED_PASTEL_PETALS.get(), itemModels().basicItem(new ResourceLocation(AlternaCraft.MODID, "red_pastel_petals_item")));
+
+        BlockModelBuilder mossyGrassModel = models().cubeBottomTop("mossy_grass", new ResourceLocation(AlternaCraft.MODID, "block/mossy_grass_side"), new ResourceLocation(AlternaCraft.MODID, "block/mossy_dirt"), new ResourceLocation(AlternaCraft.MODID, "block/mossy_grass"));
+        BlockModelBuilder mossyDirtModel = models().cubeAll("mossy_dirt", new ResourceLocation(AlternaCraft.MODID, "block/mossy_dirt"));
+
+        getVariantBuilder(BlockRegistry.MOSSY_GRASS.value())
+                .partialState().modelForState()
+                .modelFile(mossyGrassModel).rotationY(0).nextModel()
+                .modelFile(mossyGrassModel).rotationY(90).nextModel()
+                .modelFile(mossyGrassModel).rotationY(180).nextModel()
+                .modelFile(mossyGrassModel).rotationY(270).addModel();
+        simpleBlockItem(BlockRegistry.MOSSY_GRASS.get(), mossyGrassModel);
+
+
+        getVariantBuilder(BlockRegistry.MOSSY_DIRT.value())
+                .partialState().modelForState()
+                .modelFile(mossyDirtModel).rotationY(0).nextModel()
+                .modelFile(mossyDirtModel).rotationY(90).nextModel()
+                .modelFile(mossyDirtModel).rotationY(180).nextModel()
+                .modelFile(mossyDirtModel).rotationY(270).addModel();
+        simpleBlockItem(BlockRegistry.MOSSY_DIRT.get(), mossyDirtModel);
+
 
         BlockModelBuilder miningLight = models().withExistingParent("mining_light","minecraft:block/air");
         simpleBlock(BlockRegistry.MINING_LIGHT.get(), miningLight);
@@ -55,6 +104,14 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlockItem(BlockRegistry.ELECTREE_LOG.value(), itemModels().getExistingFile(new ResourceLocation(AlternaCraft.MODID, "block/electree_log")));
         logBlock(BlockRegistry.STRIPPED_ELECTREE_LOG.value());
         simpleBlockItem(BlockRegistry.STRIPPED_ELECTREE_LOG.value(), itemModels().getExistingFile(new ResourceLocation(AlternaCraft.MODID, "block/stripped_electree_log")));
+        logBlock(BlockRegistry.BLUE_PASTEL_LOG.value());
+        simpleBlockItem(BlockRegistry.BLUE_PASTEL_LOG.value(), itemModels().getExistingFile(new ResourceLocation(AlternaCraft.MODID, "block/blue_pastel_log")));
+        logBlock(BlockRegistry.RED_PASTEL_LOG.value());
+        simpleBlockItem(BlockRegistry.RED_PASTEL_LOG.value(), itemModels().getExistingFile(new ResourceLocation(AlternaCraft.MODID, "block/red_pastel_log")));
+        logBlock(BlockRegistry.STRIPPED_RED_PASTEL_LOG.value());
+        simpleBlockItem(BlockRegistry.STRIPPED_RED_PASTEL_LOG.value(), itemModels().getExistingFile(new ResourceLocation(AlternaCraft.MODID, "block/stripped_red_pastel_log")));
+        logBlock(BlockRegistry.STRIPPED_BLUE_PASTEL_LOG.value());
+        simpleBlockItem(BlockRegistry.STRIPPED_BLUE_PASTEL_LOG.value(), itemModels().getExistingFile(new ResourceLocation(AlternaCraft.MODID, "block/stripped_blue_pastel_log")));
 
         simpleBlock(BlockRegistry.DEAD_DANDELION.get(), models().cross("dead_dandelion", new ResourceLocation(AlternaCraft.MODID, "item/dead_dandelion")).renderType("minecraft:cutout"));
         itemModels().basicItem(BlockRegistry.DEAD_DANDELION.getId());
@@ -68,7 +125,24 @@ public class ModBlockStateProvider extends BlockStateProvider {
         itemModels().basicItem(BlockRegistry.GREEN_ROSE_BULB.getId());
         simpleBlock(BlockRegistry.ORANGE_BULB.get(), models().cross("orange_bulb", new ResourceLocation(AlternaCraft.MODID, "item/orange_bulb")).renderType("minecraft:cutout"));
         itemModels().basicItem(BlockRegistry.ORANGE_BULB.getId());
-
+        simpleBlock(BlockRegistry.BLUE_COLORFUL_FLOWER.get(), models().cross("blue_colorful_flower", new ResourceLocation(AlternaCraft.MODID, "item/blue_colorful_flower")).renderType("minecraft:cutout"));
+        itemModels().basicItem(BlockRegistry.BLUE_COLORFUL_FLOWER.getId());
+        simpleBlock(BlockRegistry.GREEN_COLORFUL_FLOWER.get(), models().cross("green_colorful_flower", new ResourceLocation(AlternaCraft.MODID, "item/green_colorful_flower")).renderType("minecraft:cutout"));
+        itemModels().basicItem(BlockRegistry.GREEN_COLORFUL_FLOWER.getId());
+        simpleBlock(BlockRegistry.LIME_COLORFUL_FLOWER.get(), models().cross("lime_colorful_flower", new ResourceLocation(AlternaCraft.MODID, "item/lime_colorful_flower")).renderType("minecraft:cutout"));
+        itemModels().basicItem(BlockRegistry.LIME_COLORFUL_FLOWER.getId());
+        simpleBlock(BlockRegistry.MAGENTA_COLORFUL_FLOWER.get(), models().cross("magenta_colorful_flower", new ResourceLocation(AlternaCraft.MODID, "item/magenta_colorful_flower")).renderType("minecraft:cutout"));
+        itemModels().basicItem(BlockRegistry.MAGENTA_COLORFUL_FLOWER.getId());
+        simpleBlock(BlockRegistry.ORANGE_COLORFUL_FLOWER.get(), models().cross("orange_colorful_flower", new ResourceLocation(AlternaCraft.MODID, "item/orange_colorful_flower")).renderType("minecraft:cutout"));
+        itemModels().basicItem(BlockRegistry.ORANGE_COLORFUL_FLOWER.getId());
+        simpleBlock(BlockRegistry.PINK_COLORFUL_FLOWER.get(), models().cross("pink_colorful_flower", new ResourceLocation(AlternaCraft.MODID, "item/pink_colorful_flower")).renderType("minecraft:cutout"));
+        itemModels().basicItem(BlockRegistry.PINK_COLORFUL_FLOWER.getId());
+        simpleBlock(BlockRegistry.PURPLE_COLORFUL_FLOWER.get(), models().cross("purple_colorful_flower", new ResourceLocation(AlternaCraft.MODID, "item/purple_colorful_flower")).renderType("minecraft:cutout"));
+        itemModels().basicItem(BlockRegistry.PURPLE_COLORFUL_FLOWER.getId());
+        simpleBlock(BlockRegistry.YELLOW_COLORFUL_FLOWER.get(), models().cross("yellow_colorful_flower", new ResourceLocation(AlternaCraft.MODID, "item/yellow_colorful_flower")).renderType("minecraft:cutout"));
+        itemModels().basicItem(BlockRegistry.YELLOW_COLORFUL_FLOWER.getId());
+        simpleBlock(BlockRegistry.CYAN_COLORFUL_FLOWER.get(), models().cross("cyan_colorful_flower", new ResourceLocation(AlternaCraft.MODID, "item/cyan_colorful_flower")).renderType("minecraft:cutout"));
+        itemModels().basicItem(BlockRegistry.CYAN_COLORFUL_FLOWER.getId());
 
         BlockModelBuilder frozenCactus = models().withExistingParent("frozen_cactus", "minecraft:block/cactus")
                 .texture("particle", new ResourceLocation(AlternaCraft.MODID, "block/frozen_cactus_side"))
@@ -77,5 +151,78 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 .texture("top", new ResourceLocation(AlternaCraft.MODID, "block/frozen_cactus_top"))
                 .renderType("minecraft:cutout");
         simpleBlockWithItem(BlockRegistry.FROZEN_CACTUS.get(), frozenCactus);
+
+        BlockModelBuilder rocks_0 = models().getBuilder(new ResourceLocation(AlternaCraft.MODID, "block/rocks_0").toString())
+                        .element().from(0, 0, 0).to(16, 0.1f, 16).face(Direction.UP).texture("#rock").end()
+                        .from(0, 0, 0).to(16, 0.1f, 16).face(Direction.DOWN).uvs(0, 16, 16, 0).texture("#rock").end().end().texture("particle", new ResourceLocation(AlternaCraft.MODID, "block/rocks_0")).texture("rock", new ResourceLocation(AlternaCraft.MODID, "block/rocks_0")).renderType("minecraft:cutout");
+        BlockModelBuilder rocks_1 = models().getBuilder(new ResourceLocation(AlternaCraft.MODID, "block/rocks_1").toString())
+                .element().from(0, 0, 0).to(16, 0.1f, 16).face(Direction.UP).texture("#rock").end()
+                .from(0, 0, 0).to(16, 0.1f, 16).face(Direction.DOWN).uvs(0, 16, 16, 0).texture("#rock").end().end().texture("particle", new ResourceLocation(AlternaCraft.MODID, "block/rocks_1")).texture("rock", new ResourceLocation(AlternaCraft.MODID, "block/rocks_1")).renderType("minecraft:cutout");
+        BlockModelBuilder rocks_2 = models().getBuilder(new ResourceLocation(AlternaCraft.MODID, "block/rocks_2").toString())
+                .element().from(0, 0, 0).to(16, 0.1f, 16).face(Direction.UP).texture("#rock").end()
+                .from(0, 0, 0).to(16, 0.1f, 16).face(Direction.DOWN).uvs(0, 16, 16, 0).texture("#rock").end().end().texture("particle", new ResourceLocation(AlternaCraft.MODID, "block/rocks_2")).texture("rock", new ResourceLocation(AlternaCraft.MODID, "block/rocks_2")).renderType("minecraft:cutout");
+
+
+        getVariantBuilder(BlockRegistry.ROCKS.value())
+                .forAllStates(state ->
+                                ArrayUtils.addAll(ArrayUtils.addAll(
+                                        ConfiguredModel.allYRotations(rocks_0, 0, false),
+                                        ConfiguredModel.allYRotations(rocks_1, 0, false)),
+                                        ConfiguredModel.allYRotations(rocks_2, 0, false)));
+
+        simpleBlockItem(BlockRegistry.ROCKS.value(), itemModels().basicItem(new ResourceLocation(AlternaCraft.MODID, "rocks_item")));
+        simpleBlock(BlockRegistry.COOL_LAVA.value(), models().getBuilder(new ResourceLocation(AlternaCraft.MODID, "block/cool_lava").toString()).texture("particle", new ResourceLocation(AlternaCraft.MODID, "block/cool_lava_still")));
+    }
+
+    private void petals(String name, Block block) {
+        getMultipartBuilder(block)
+                .part().rotationY(0).modelFile(models().withExistingParent(name + "_1", mcLoc("block/flowerbed_1")).texture("flowerbed", new ResourceLocation(AlternaCraft.MODID, "block/" + name)).texture("stem", new ResourceLocation(AlternaCraft.MODID, "block/" + name + "_stem"))).addModel()
+                .condition(PinkPetalsBlock.FACING, Direction.NORTH)
+                .condition(PinkPetalsBlock.AMOUNT, 1, 2, 3, 4).useOr().end()
+                .part().rotationY(90).modelFile(models().withExistingParent(name + "_1", mcLoc("block/flowerbed_1")).texture("flowerbed", new ResourceLocation(AlternaCraft.MODID, "block/" + name)).texture("stem", new ResourceLocation(AlternaCraft.MODID, "block/" + name + "_stem"))).addModel()
+                .condition(PinkPetalsBlock.FACING, Direction.EAST)
+                .condition(PinkPetalsBlock.AMOUNT, 1, 2, 3, 4).useOr().end()
+                .part().rotationY(180).modelFile(models().withExistingParent(name + "_1", mcLoc("block/flowerbed_1")).texture("flowerbed", new ResourceLocation(AlternaCraft.MODID, "block/" + name)).texture("stem", new ResourceLocation(AlternaCraft.MODID, "block/" + name + "_stem"))).addModel()
+                .condition(PinkPetalsBlock.FACING, Direction.SOUTH)
+                .condition(PinkPetalsBlock.AMOUNT, 1, 2, 3, 4).useOr().end()
+                .part().rotationY(270).modelFile(models().withExistingParent(name + "_1", mcLoc("block/flowerbed_1")).texture("flowerbed", new ResourceLocation(AlternaCraft.MODID, "block/" + name)).texture("stem", new ResourceLocation(AlternaCraft.MODID, "block/" + name + "_stem"))).addModel()
+                .condition(PinkPetalsBlock.FACING, Direction.WEST)
+                .condition(PinkPetalsBlock.AMOUNT, 1, 2, 3, 4).useOr().end()
+                .part().rotationY(0).modelFile(models().withExistingParent(name + "_2", mcLoc("block/flowerbed_2")).texture("flowerbed", new ResourceLocation(AlternaCraft.MODID, "block/" + name)).texture("stem", new ResourceLocation(AlternaCraft.MODID, "block/" + name + "_stem"))).addModel()
+                .condition(PinkPetalsBlock.FACING, Direction.NORTH)
+                .condition(PinkPetalsBlock.AMOUNT, 2, 3, 4).useOr().end()
+                .part().rotationY(90).modelFile(models().withExistingParent(name + "_2", mcLoc("block/flowerbed_2")).texture("flowerbed", new ResourceLocation(AlternaCraft.MODID, "block/" + name)).texture("stem", new ResourceLocation(AlternaCraft.MODID, "block/" + name + "_stem"))).addModel()
+                .condition(PinkPetalsBlock.FACING, Direction.EAST)
+                .condition(PinkPetalsBlock.AMOUNT, 2, 3, 4).useOr().end()
+                .part().rotationY(180).modelFile(models().withExistingParent(name + "_2", mcLoc("block/flowerbed_2")).texture("flowerbed", new ResourceLocation(AlternaCraft.MODID, "block/" + name)).texture("stem", new ResourceLocation(AlternaCraft.MODID, "block/" + name + "_stem"))).addModel()
+                .condition(PinkPetalsBlock.FACING, Direction.SOUTH)
+                .condition(PinkPetalsBlock.AMOUNT, 2, 3, 4).useOr().end()
+                .part().rotationY(270).modelFile(models().withExistingParent(name + "_2", mcLoc("block/flowerbed_2")).texture("flowerbed", new ResourceLocation(AlternaCraft.MODID, "block/" + name)).texture("stem", new ResourceLocation(AlternaCraft.MODID, "block/" + name + "_stem"))).addModel()
+                .condition(PinkPetalsBlock.FACING, Direction.WEST)
+                .condition(PinkPetalsBlock.AMOUNT, 2, 3, 4).useOr().end()
+                .part().rotationY(0).modelFile(models().withExistingParent(name + "_3", mcLoc("block/flowerbed_3")).texture("flowerbed", new ResourceLocation(AlternaCraft.MODID, "block/" + name)).texture("stem", new ResourceLocation(AlternaCraft.MODID, "block/" + name + "_stem"))).addModel()
+                .condition(PinkPetalsBlock.FACING, Direction.NORTH)
+                .condition(PinkPetalsBlock.AMOUNT, 3, 4).useOr().end()
+                .part().rotationY(90).modelFile(models().withExistingParent(name + "_3", mcLoc("block/flowerbed_3")).texture("flowerbed", new ResourceLocation(AlternaCraft.MODID, "block/" + name)).texture("stem", new ResourceLocation(AlternaCraft.MODID, "block/" + name + "_stem"))).addModel()
+                .condition(PinkPetalsBlock.FACING, Direction.EAST)
+                .condition(PinkPetalsBlock.AMOUNT, 3, 4).useOr().end()
+                .part().rotationY(180).modelFile(models().withExistingParent(name + "_3", mcLoc("block/flowerbed_3")).texture("flowerbed", new ResourceLocation(AlternaCraft.MODID, "block/" + name)).texture("stem", new ResourceLocation(AlternaCraft.MODID, "block/" + name + "_stem"))).addModel()
+                .condition(PinkPetalsBlock.FACING, Direction.SOUTH)
+                .condition(PinkPetalsBlock.AMOUNT, 3, 4).useOr().end()
+                .part().rotationY(270).modelFile(models().withExistingParent(name + "_3", mcLoc("block/flowerbed_3")).texture("flowerbed", new ResourceLocation(AlternaCraft.MODID, "block/" + name)).texture("stem", new ResourceLocation(AlternaCraft.MODID, "block/" + name + "_stem"))).addModel()
+                .condition(PinkPetalsBlock.FACING, Direction.WEST)
+                .condition(PinkPetalsBlock.AMOUNT, 3, 4).useOr().end()
+                .part().rotationY(0).modelFile(models().withExistingParent(name + "_4", mcLoc("block/flowerbed_4")).texture("flowerbed", new ResourceLocation(AlternaCraft.MODID, "block/" + name)).texture("stem", new ResourceLocation(AlternaCraft.MODID, "block/" + name + "_stem"))).addModel()
+                .condition(PinkPetalsBlock.FACING, Direction.NORTH)
+                .condition(PinkPetalsBlock.AMOUNT, 4).useOr().end()
+                .part().rotationY(90).modelFile(models().withExistingParent(name + "_4", mcLoc("block/flowerbed_4")).texture("flowerbed", new ResourceLocation(AlternaCraft.MODID, "block/" + name)).texture("stem", new ResourceLocation(AlternaCraft.MODID, "block/" + name + "_stem"))).addModel()
+                .condition(PinkPetalsBlock.FACING, Direction.EAST)
+                .condition(PinkPetalsBlock.AMOUNT, 4).useOr().end()
+                .part().rotationY(180).modelFile(models().withExistingParent(name + "_4", mcLoc("block/flowerbed_4")).texture("flowerbed", new ResourceLocation(AlternaCraft.MODID, "block/" + name)).texture("stem", new ResourceLocation(AlternaCraft.MODID, "block/" + name + "_stem"))).addModel()
+                .condition(PinkPetalsBlock.FACING, Direction.SOUTH)
+                .condition(PinkPetalsBlock.AMOUNT, 4).useOr().end()
+                .part().rotationY(270).modelFile(models().withExistingParent(name + "_4", mcLoc("block/flowerbed_4")).texture("flowerbed", new ResourceLocation(AlternaCraft.MODID, "block/" + name)).texture("stem", new ResourceLocation(AlternaCraft.MODID, "block/" + name + "_stem"))).addModel()
+                .condition(PinkPetalsBlock.FACING, Direction.WEST)
+                .condition(PinkPetalsBlock.AMOUNT, 4).useOr().end();
     }
 }

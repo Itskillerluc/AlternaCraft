@@ -21,12 +21,6 @@ public class ModItemTagProvider extends ItemTagsProvider {
 
     @Override
     protected void addTags(HolderLookup.Provider pProvider) {
-        tag(Tags.CHARRED_LOGS)
-                .add(ItemRegistry.CHARRED_BARK.get())
-                .add(ItemRegistry.STRIPPED_CHARRED_BARK.get());
-        tag(Tags.ELECTREE_LOGS)
-                .add(ItemRegistry.ELECTREE_LOG.get())
-                .add(ItemRegistry.STRIPPED_ELECTREE_LOG.get());
         tag(ItemTags.PICKAXES)
                 .add(ItemRegistry.AIO_PICKAXE.value())
                 .add(ItemRegistry.PAINITE_PICKAXE.value())
@@ -84,5 +78,12 @@ public class ModItemTagProvider extends ItemTagsProvider {
         copy(BlockTags.DIRT, ItemTags.DIRT);
         copy(BlockTags.SAND, ItemTags.SAND);
         copy(BlockTags.LEAVES, ItemTags.LEAVES);
+        copy(BlockTags.SMALL_FLOWERS, ItemTags.SMALL_FLOWERS);
+        copy(Tags.Blocks.ELECTREE_LOGS, Tags.Items.ELECTREE_LOGS);
+        copy(Tags.Blocks.BLUE_PASTEL_LOGS, Tags.Items.BLUE_PASTEL_LOGS);
+        copy(Tags.Blocks.CHARRED_LOGS, Tags.Items.CHARRED_LOGS);
+        copy(Tags.Blocks.COPPERWOOD_ORES, Tags.Items.COPPERWOOD_ORES);
+        copy(Tags.Blocks.PAINITE_ORES, Tags.Items.PAINITE_ORES);
+        copy(Tags.Blocks.DARK_CRYSTAL_ORES, Tags.Items.DARK_CRYSTAL_ORES);
     }
 }
