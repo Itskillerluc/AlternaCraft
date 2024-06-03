@@ -14,6 +14,8 @@ public class AlternaCraft {
     private static final Logger LOGGER = LogUtils.getLogger();
     public AlternaCraft(IEventBus modEventBus, ModContainer modContainer) {
         SoundEventRegistry.SOUND_EVENTS.register(modEventBus);
+        EntityDataSerailizerRegistry.ENTITY_DATA_SERIALIZERS.register(modEventBus);
+        EntityRegistry.ENTITY_TYPES.register(modEventBus);
         BlockRegistry.BLOCKS.register(modEventBus);
         FluidRegistry.FLUIDS.register(modEventBus);
         FluidTypeRegistry.FLUID_TYPES.register(modEventBus);

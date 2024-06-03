@@ -5,14 +5,14 @@
       "condition": "minecraft:match_tool",
       "predicate": {
         "items": [
-          "alternacraft:painite_axe",
-          "alternacraft:painite_pickaxe",
-          "alternacraft:painite_shovel",
-          "alternacraft:painite_scythe",
           "alternacraft:aio_axe",
+          "alternacraft:aio_scythe",
           "alternacraft:aio_pickaxe",
           "alternacraft:aio_shovel",
-          "alternacraft:aio_scythe"
+          "alternacraft:painite_axe",
+          "alternacraft:painite_scythe",
+          "alternacraft:painite_pickaxe",
+          "alternacraft:painite_shovel"
         ]
       }
     }

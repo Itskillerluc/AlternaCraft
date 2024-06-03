@@ -27,6 +27,7 @@ public class DatagenHandler {
         generator.addProvider(event.includeServer(), modBlockTagProvider);
         generator.addProvider(event.includeServer(), new ModDataMapProvider(output, event.getLookupProvider()));
         generator.addProvider(event.includeServer(), new ModItemTagProvider(output, event.getLookupProvider(), modBlockTagProvider.contentsGetter(), existingFileHelper));
+        generator.addProvider(event.includeServer(), new ModEntityTypeTagProvider(output, event.getLookupProvider(), existingFileHelper));
         generator.addProvider(event.includeServer(), new ModLootModifierProvider(output));
         generator.addProvider(event.includeServer(), new ModRecipeProvider(output));
         generator.addProvider(event.includeClient(), new ModSoundProvider(output, existingFileHelper));
