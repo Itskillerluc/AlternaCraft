@@ -29,22 +29,22 @@ public class BlockRegistry {
     public static final DeferredBlock<RotatedPillarBlock> STRIPPED_ELECTREE_LOG = BLOCKS.registerBlock("stripped_electree_log", RotatedPillarBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.BIRCH_LOG));
     public static final DeferredBlock<LiquidBlock> COOL_LAVA = BLOCKS.registerBlock("cool_lava", CoolLavaBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.LAVA).lightLevel(state -> 12));
 
-    public static final DeferredBlock<Block> DEAD_DANDELION = BLOCKS.registerBlock("dead_dandelion",props -> new FlowerBlock(() ->
+    public static final DeferredBlock<Block> DEAD_DANDELION = BLOCKS.registerBlock("dead_dandelion",props -> new FlowerBlock(
             MobEffects.WEAKNESS, 7, props), BlockBehaviour.Properties.ofFullCopy(Blocks.DANDELION));
 
     public static final DeferredBlock<Block> DEAD_GRASS = BLOCKS.registerBlock("dead_grass",
             TallGrassBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.SHORT_GRASS));
 
-    public static final DeferredBlock<Block> DEAD_POPPY = BLOCKS.registerBlock("dead_poppy",props -> new FlowerBlock(() ->
+    public static final DeferredBlock<Block> DEAD_POPPY = BLOCKS.registerBlock("dead_poppy",props -> new FlowerBlock(
             MobEffects.WITHER, 4, props), BlockBehaviour.Properties.ofFullCopy(Blocks.POPPY));
 
-    public static final DeferredBlock<Block> ORANGE_BULB = BLOCKS.registerBlock("orange_bulb", props -> new FlowerBlock(() ->
+    public static final DeferredBlock<Block> ORANGE_BULB = BLOCKS.registerBlock("orange_bulb", props -> new FlowerBlock(
             MobEffects.REGENERATION, 4, props), BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_TULIP));
 
-    public static final DeferredBlock<Block> BLUE_BULB = BLOCKS.registerBlock("blue_bulb",props -> new FlowerBlock(() ->
+    public static final DeferredBlock<Block> BLUE_BULB = BLOCKS.registerBlock("blue_bulb",props -> new FlowerBlock(
             MobEffects.LEVITATION, 4, props), BlockBehaviour.Properties.ofFullCopy(Blocks.BLUE_ORCHID));
 
-    public static final DeferredBlock<Block> GREEN_ROSE_BULB = BLOCKS.registerBlock("green_rose_bulb",props -> new FlowerBlock(() ->
+    public static final DeferredBlock<Block> GREEN_ROSE_BULB = BLOCKS.registerBlock("green_rose_bulb",props -> new FlowerBlock(
             MobEffects.LEVITATION, 4, props), BlockBehaviour.Properties.ofFullCopy(Blocks.AZURE_BLUET));
 
     public static final DeferredBlock<Block> PAINITE_ORE_SOIL = BLOCKS.registerSimpleBlock("painite_ore_soil", BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_ORE));
@@ -74,23 +74,23 @@ public class BlockRegistry {
     public static final DeferredBlock<Block> RED_PASTEL_PETALS = BLOCKS.registerBlock("red_pastel_petals", PinkPetalsBlock::new, BlockBehaviour.Properties.ofFullCopy(Blocks.PINK_PETALS).mapColor(MapColor.COLOR_RED));
     public static final Holder<Block> RED_PASTEL_PLANKS = BLOCKS.registerSimpleBlock("red_pastel_planks", BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS).mapColor(MapColor.COLOR_RED));
     public static final DeferredBlock<Block> ROCKS = BLOCKS.registerBlock("rocks", RocksBlock::new, BlockBehaviour.Properties.of().mapColor(MapColor.STONE).instabreak().noOcclusion().noCollission());
-    public static final DeferredBlock<Block> BLUE_COLORFUL_FLOWER = BLOCKS.registerBlock("blue_colorful_flower",props -> new FlowerBlock(() ->
+    public static final DeferredBlock<Block> BLUE_COLORFUL_FLOWER = BLOCKS.registerBlock("blue_colorful_flower",props -> new FlowerBlock(
             MobEffects.SATURATION, 4, props), BlockBehaviour.Properties.ofFullCopy(Blocks.CORNFLOWER));
-    public static final DeferredBlock<Block> CYAN_COLORFUL_FLOWER = BLOCKS.registerBlock("cyan_colorful_flower",props -> new FlowerBlock(() ->
+    public static final DeferredBlock<Block> CYAN_COLORFUL_FLOWER = BLOCKS.registerBlock("cyan_colorful_flower",props -> new FlowerBlock(
             MobEffects.CONFUSION, 4, props), BlockBehaviour.Properties.ofFullCopy(Blocks.BLUE_ORCHID));
-    public static final DeferredBlock<Block> GREEN_COLORFUL_FLOWER = BLOCKS.registerBlock("green_colorful_flower",props -> new FlowerBlock(() ->
+    public static final DeferredBlock<Block> GREEN_COLORFUL_FLOWER = BLOCKS.registerBlock("green_colorful_flower",props -> new FlowerBlock(
             MobEffects.DIG_SLOWDOWN, 4, props), BlockBehaviour.Properties.ofFullCopy(Blocks.BLUE_ORCHID).mapColor(MapColor.COLOR_LIGHT_GREEN));
-    public static final DeferredBlock<Block> LIME_COLORFUL_FLOWER = BLOCKS.registerBlock("lime_colorful_flower",props -> new FlowerBlock(() ->
+    public static final DeferredBlock<Block> LIME_COLORFUL_FLOWER = BLOCKS.registerBlock("lime_colorful_flower",props -> new FlowerBlock(
             MobEffects.DIG_SPEED, 4, props), BlockBehaviour.Properties.ofFullCopy(Blocks.BLUE_ORCHID).mapColor(DyeColor.LIME));
-    public static final DeferredBlock<Block> MAGENTA_COLORFUL_FLOWER = BLOCKS.registerBlock("magenta_colorful_flower",props -> new FlowerBlock(() ->
+    public static final DeferredBlock<Block> MAGENTA_COLORFUL_FLOWER = BLOCKS.registerBlock("magenta_colorful_flower",props -> new FlowerBlock(
             MobEffects.MOVEMENT_SPEED, 4, props), BlockBehaviour.Properties.ofFullCopy(Blocks.ALLIUM));
-    public static final DeferredBlock<Block> ORANGE_COLORFUL_FLOWER = BLOCKS.registerBlock("orange_colorful_flower",props -> new FlowerBlock(() ->
+    public static final DeferredBlock<Block> ORANGE_COLORFUL_FLOWER = BLOCKS.registerBlock("orange_colorful_flower",props -> new FlowerBlock(
             MobEffects.HEAL, 1, props), BlockBehaviour.Properties.ofFullCopy(Blocks.ORANGE_TULIP));
-    public static final DeferredBlock<Block> PINK_COLORFUL_FLOWER = BLOCKS.registerBlock("pink_colorful_flower",props -> new FlowerBlock(() ->
+    public static final DeferredBlock<Block> PINK_COLORFUL_FLOWER = BLOCKS.registerBlock("pink_colorful_flower",props -> new FlowerBlock(
             MobEffects.DAMAGE_RESISTANCE, 4, props), BlockBehaviour.Properties.ofFullCopy(Blocks.PINK_TULIP));
-    public static final DeferredBlock<Block> PURPLE_COLORFUL_FLOWER = BLOCKS.registerBlock("purple_colorful_flower",props -> new FlowerBlock(() ->
+    public static final DeferredBlock<Block> PURPLE_COLORFUL_FLOWER = BLOCKS.registerBlock("purple_colorful_flower",props -> new FlowerBlock(
             MobEffects.SATURATION, 4, props), BlockBehaviour.Properties.ofFullCopy(Blocks.ALLIUM));
 
-    public static final DeferredBlock<Block> YELLOW_COLORFUL_FLOWER = BLOCKS.registerBlock("yellow_colorful_flower",props -> new FlowerBlock(() ->
+    public static final DeferredBlock<Block> YELLOW_COLORFUL_FLOWER = BLOCKS.registerBlock("yellow_colorful_flower",props -> new FlowerBlock(
             MobEffects.FIRE_RESISTANCE, 10, props), BlockBehaviour.Properties.ofFullCopy(Blocks.DANDELION));
 }

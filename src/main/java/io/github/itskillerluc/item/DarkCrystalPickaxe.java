@@ -1,19 +1,20 @@
 package io.github.itskillerluc.item;
 
 import io.github.itskillerluc.AlternaCraft;
+import io.github.itskillerluc.init.DataComponentRegistry;
 import io.github.itskillerluc.init.SoundEventRegistry;
 import io.github.itskillerluc.init.ToolActions;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.component.DataComponentMap;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.core.component.PatchedDataComponentMap;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.PickaxeItem;
-import net.minecraft.world.item.Tier;
-import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.common.ToolAction;
 import org.jetbrains.annotations.NotNull;
@@ -23,7 +24,7 @@ import java.util.List;
 
 public class DarkCrystalPickaxe extends PickaxeItem {
     public DarkCrystalPickaxe(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties) {
-        super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties);
+        super(pTier, pProperties.attributes(PickaxeItem.createAttributes(pTier, pAttackDamageModifier, pAttackSpeedModifier)));
     }
 
     @Override
@@ -41,7 +42,7 @@ public class DarkCrystalPickaxe extends PickaxeItem {
         if (!pLevel.isClientSide) return;
         int range = 15;
         ItemStack stack = pPlayer.getItemInHand(pUsedHand);
-        if (stack.getTag() == null || !stack.getTag().contains("distance")) {
+        if (!stack.has(DataComponentRegistry.DISTANCE.get())) {
             BlockPos closestBlock = null;
 
             for (int x = -range; x <= range; x++) {
@@ -57,8 +58,8 @@ public class DarkCrystalPickaxe extends PickaxeItem {
                 }
             }
             if (closestBlock != null) {
-                stack.getOrCreateTag().putLong("gameTime", pLevel.getGameTime());
-                stack.getOrCreateTag().putDouble("distance", Math.sqrt(closestBlock.distSqr(pPlayer.getOnPos())));
+                stack.set(DataComponentRegistry.GAMETIME.get(), pLevel.getGameTime());
+                stack.set(DataComponentRegistry.DISTANCE.get(), Math.sqrt(closestBlock.distSqr(pPlayer.getOnPos())));
             }
             pPlayer.playSound(SoundEventRegistry.SONAR_PING.get());
         }
@@ -72,11 +73,11 @@ public class DarkCrystalPickaxe extends PickaxeItem {
 
     @SuppressWarnings("DataFlowIssue")
     public void darkCrystalTick(ItemStack pStack, Level pLevel, Entity pEntity) {
-        if (pStack.hasTag() && pLevel.isClientSide()) {
-            if (pStack.getTag().contains("gameTime") && pStack.getTag().contains("distance")) {
-                if (pLevel.getGameTime() - pStack.getTag().getLong("gameTime") > 20L * pStack.getTag().getInt("distance")) {
-                    pStack.removeTagKey("gameTime");
-                    pStack.removeTagKey("distance");
+        if (pLevel.isClientSide()) {
+            if (pStack.has(DataComponentRegistry.GAMETIME.get()) && pStack.has(DataComponentRegistry.DISTANCE.get())) {
+                if (pLevel.getGameTime() - pStack.get(DataComponentRegistry.DISTANCE) > 20L * pStack.get(DataComponentRegistry.DISTANCE.get())) {
+                    pStack.remove(DataComponentRegistry.GAMETIME.get());
+                    pStack.remove(DataComponentRegistry.DISTANCE.get());
                     if (pLevel.isClientSide()) {
                         pEntity.playSound(SoundEventRegistry.SONAR_PONG.get());
                     }
@@ -86,8 +87,8 @@ public class DarkCrystalPickaxe extends PickaxeItem {
     }
 
     @Override
-    public void appendHoverText(@NotNull ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, @NotNull TooltipFlag pIsAdvanced) {
+    public void appendHoverText(ItemStack pStack, TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
         pTooltipComponents.add(Component.translatable("description." + AlternaCraft.MODID + "." + "dark_crystal_pickaxe").withStyle(ChatFormatting.GOLD, ChatFormatting.ITALIC));
-        super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
+        super.appendHoverText(pStack, pContext, pTooltipComponents, pTooltipFlag);
     }
 }

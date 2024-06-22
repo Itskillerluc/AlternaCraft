@@ -2,7 +2,9 @@ package io.github.itskillerluc.init;
 
 import io.github.itskillerluc.AlternaCraft;
 import net.minecraft.Util;
+import net.minecraft.core.RegistryAccess;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -32,21 +34,21 @@ public class CreativeTabRegistry {
                                 if (entry.get() == ItemRegistry.COPPERWOOD_SWORD.get()) {
                                     output.accept(Util.make(() -> {
                                         var stack = new ItemStack(ItemRegistry.COPPERWOOD_SWORD.get());
-                                        stack.enchant(Enchantments.SWEEPING_EDGE, 5);
+                                        stack.enchant(params.holders().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.SWEEPING_EDGE), 5);
                                         return stack;
                                     }));
                                 } else if (entry.get() == ItemRegistry.PAINITE_SWORD.get()) {
                                     output.accept(Util.make(() -> {
                                         var stack = new ItemStack(ItemRegistry.PAINITE_SWORD.get());
-                                        stack.enchant(Enchantments.FIRE_ASPECT, 5);
+                                        stack.enchant(params.holders().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.FIRE_ASPECT), 5);
                                         return stack;
                                     }));
                                 }
                                 else if (entry.get() == ItemRegistry.AIO_SWORD.get()) {
                                     output.accept(Util.make(() -> {
                                         var stack = new ItemStack(ItemRegistry.AIO_SWORD.get());
-                                        stack.enchant(Enchantments.FIRE_ASPECT, 5);
-                                        stack.enchant(Enchantments.SWEEPING_EDGE, 5);
+                                        stack.enchant(params.holders().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.FIRE_ASPECT), 5);
+                                        stack.enchant(params.holders().lookupOrThrow(Registries.ENCHANTMENT).getOrThrow(Enchantments.SWEEPING_EDGE), 5);
                                         return stack;
                                     }));
                                 }

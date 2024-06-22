@@ -12,7 +12,7 @@ public class SoundEventRegistry {
     public static final DeferredRegister<SoundEvent> SOUND_EVENTS = DeferredRegister.create(BuiltInRegistries.SOUND_EVENT, AlternaCraft.MODID);
 
     public static final Supplier<SoundEvent> SONAR_PING = SOUND_EVENTS.register("sonar_ping",
-            () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(AlternaCraft.MODID, "sonar_ping")));
+            () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(AlternaCraft.MODID, "sonar_ping")));
     public static final Supplier<SoundEvent> SONAR_PONG = SOUND_EVENTS.register("sonar_pong",
-            () -> SoundEvent.createVariableRangeEvent(new ResourceLocation(AlternaCraft.MODID, "sonar_pong")));
+            () -> SoundEvent.createVariableRangeEvent(ResourceLocation.fromNamespaceAndPath(AlternaCraft.MODID, "sonar_pong")));
 }

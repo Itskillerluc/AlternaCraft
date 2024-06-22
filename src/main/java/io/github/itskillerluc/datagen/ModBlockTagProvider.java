@@ -98,14 +98,18 @@ public class ModBlockTagProvider extends BlockTagsProvider {
         tag(Tags.Blocks.ELECTREE_LOGS)
                 .add(BlockRegistry.ELECTREE_LOG.value())
                 .add(BlockRegistry.STRIPPED_ELECTREE_LOG.value());
-        tag(Tags.Blocks.NEEDS_AIO_TOOL)
-                .addTag(Tags.Blocks.NEEDS_DARK_CRYSTAL_TOOL);
-        tag(Tags.Blocks.NEEDS_DARK_CRYSTAL_TOOL)
-                .addTag(BlockTags.NEEDS_DIAMOND_TOOL);
+        tag(Tags.Blocks.NEEDS_AIO_TOOL);
+        tag(Tags.Blocks.NEEDS_DARK_CRYSTAL_TOOL);
         tag(Tags.Blocks.PAINITE_ORES)
                 .add(BlockRegistry.PAINITE_ORE_SOIL.value());
         tag(Tags.Blocks.RED_PASTEL_LOGS)
                 .add(BlockRegistry.RED_PASTEL_LOG.value())
                 .add(BlockRegistry.STRIPPED_RED_PASTEL_LOG.value());
+        tag(Tags.Blocks.INCORRECT_AIO);
+        tag(Tags.Blocks.INCORRECT_DARK_CRYSTAL)
+                .addTag(Tags.Blocks.NEEDS_AIO_TOOL);
+        tag(BlockTags.INCORRECT_FOR_NETHERITE_TOOL)
+                .addTag(Tags.Blocks.NEEDS_AIO_TOOL)
+                .addTag(Tags.Blocks.NEEDS_DARK_CRYSTAL_TOOL);
     }
 }

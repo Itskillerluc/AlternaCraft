@@ -1,7 +1,7 @@
 package io.github.itskillerluc.event;
 
 import io.github.itskillerluc.AlternaCraft;
-import io.github.itskillerluc.init.ArmorMaterials;
+import io.github.itskillerluc.init.ArmorMaterialRegistry;
 import io.github.itskillerluc.init.ToolTiers;
 import net.minecraft.world.damagesource.DamageTypes;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -9,19 +9,18 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.TieredItem;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.common.Mod;
-import net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingAttackEvent;
 import net.neoforged.neoforge.event.entity.living.LivingDropsEvent;
 import org.apache.commons.lang3.stream.Streams;
 
-@Mod.EventBusSubscriber(modid = AlternaCraft.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE)
+@EventBusSubscriber(modid = AlternaCraft.MODID, bus = EventBusSubscriber.Bus.GAME)
 public class ForgeEvents {
     @SubscribeEvent
     public static void livingAttackEvent(final LivingAttackEvent event) {
         if (event.getSource().is(DamageTypes.FALL)) {
             if (Streams.of(event.getEntity().getArmorSlots().iterator()).allMatch(stack ->
-                    stack.getItem() instanceof ArmorItem armorItem && (armorItem.getMaterial() == ArmorMaterials.MAGNET || armorItem.getMaterial() == ArmorMaterials.AIO))) {
+                    stack.getItem() instanceof ArmorItem armorItem && (armorItem.getMaterial().value().equals(ArmorMaterialRegistry.MAGNET.value()) || armorItem.getMaterial().value().equals(ArmorMaterialRegistry.AIO.value())))) {
                 event.setCanceled(true);
             }
         }

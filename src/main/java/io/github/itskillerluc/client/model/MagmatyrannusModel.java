@@ -9,7 +9,7 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.resources.ResourceLocation;
 
 public class MagmatyrannusModel extends AnimatableDucModel<Magmatyrannus> {
-    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(new ResourceLocation(AlternaCraft.MODID, "magmatyrannus"), "main");
+    public static final ModelLayerLocation LAYER_LOCATION = new ModelLayerLocation(ResourceLocation.fromNamespaceAndPath(AlternaCraft.MODID, "magmatyrannus"), "main");
 
     public MagmatyrannusModel(Ducling ducling) {
         super(ducling, RenderType::entityCutout);

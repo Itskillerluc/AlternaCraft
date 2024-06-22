@@ -3,7 +3,7 @@ package io.github.itskillerluc.init;
 import io.github.itskillerluc.AlternaCraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.world.level.pathfinder.BlockPathTypes;
+import net.minecraft.world.level.pathfinder.PathType;
 import net.neoforged.neoforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.neoforged.neoforge.common.SoundActions;
 import net.neoforged.neoforge.fluids.FluidType;
@@ -22,7 +22,7 @@ public class FluidTypeRegistry {
                     .descriptionId("block.alternacraft.cool_lava")
                     .canSwim(false)
                     .canDrown(false)
-                    .pathType(BlockPathTypes.LAVA)
+                    .pathType(PathType.LAVA)
                     .adjacentPathType(null)
                     .sound(SoundActions.BUCKET_FILL, SoundEvents.BUCKET_FILL_LAVA)
                     .sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY_LAVA)
@@ -33,8 +33,8 @@ public class FluidTypeRegistry {
 
                 public void initializeClient(@NotNull Consumer<IClientFluidTypeExtensions> consumer) {
                     consumer.accept(new IClientFluidTypeExtensions() {
-                        private static final ResourceLocation COOL_LAVA_STILL = new ResourceLocation(AlternaCraft.MODID, "block/cool_lava_still");
-                        private static final ResourceLocation COOL_LAVA_FLOWING = new ResourceLocation(AlternaCraft.MODID, "block/cool_lava_flowing");
+                        private static final ResourceLocation COOL_LAVA_STILL = ResourceLocation.fromNamespaceAndPath(AlternaCraft.MODID, "block/cool_lava_still");
+                        private static final ResourceLocation COOL_LAVA_FLOWING = ResourceLocation.fromNamespaceAndPath(AlternaCraft.MODID, "block/cool_lava_flowing");
 
                         public @NotNull ResourceLocation getStillTexture() {
                             return COOL_LAVA_STILL;

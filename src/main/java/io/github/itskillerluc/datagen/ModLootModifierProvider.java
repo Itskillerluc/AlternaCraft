@@ -4,14 +4,17 @@ import io.github.itskillerluc.AlternaCraft;
 import io.github.itskillerluc.init.ItemRegistry;
 import io.github.itskillerluc.loot.SmeltingLootModifier;
 import net.minecraft.advancements.critereon.ItemPredicate;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.MatchTool;
 import net.neoforged.neoforge.common.data.GlobalLootModifierProvider;
 
+import java.util.concurrent.CompletableFuture;
+
 public class ModLootModifierProvider extends GlobalLootModifierProvider {
-    public ModLootModifierProvider(PackOutput output) {
-        super(output, AlternaCraft.MODID);
+    public ModLootModifierProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> registries) {
+        super(output, registries, AlternaCraft.MODID);
     }
 
     @Override

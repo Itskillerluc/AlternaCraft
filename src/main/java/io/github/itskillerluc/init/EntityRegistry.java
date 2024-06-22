@@ -15,5 +15,5 @@ public class EntityRegistry {
 
     public static final Supplier<EntityType<Magmatyrannus>> MAGMATYRANNUS = ENTITY_TYPES.register("magmatyrannus",
             () -> EntityType.Builder.of(Magmatyrannus::new, MobCategory.CREATURE).sized(2, 2) //8 5
-                    .build(new ResourceLocation(AlternaCraft.MODID, "magmatyrannus").toString()));
+                    .build(ResourceLocation.fromNamespaceAndPath(AlternaCraft.MODID, "magmatyrannus").toString()));
 }

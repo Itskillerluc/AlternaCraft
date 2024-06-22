@@ -6,10 +6,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.LivingEntity;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.ShovelItem;
-import net.minecraft.world.item.Tier;
-import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
@@ -20,7 +17,7 @@ import java.util.List;
 
 public class DarkCrystalShovel extends ShovelItem {
     public DarkCrystalShovel(Tier pTier, float pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties) {
-        super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties);
+        super(pTier, pProperties.attributes(ShovelItem.createAttributes(pTier, pAttackDamageModifier, pAttackSpeedModifier)));
     }
 
     @Override
@@ -33,7 +30,7 @@ public class DarkCrystalShovel extends ShovelItem {
         for (int x = -1; x < 2; x++) {
             for (int z = -1; z < 2; z++) {
                 var vec3 = Vec3.directionFromRotation(pEntityLiving.getRotationVector());
-                var direction = Direction.getNearestStable(((float) vec3.x), (float) vec3.y, (float) vec3.z);
+                var direction = Direction.getNearest(((float) vec3.x), (float) vec3.y, (float) vec3.z);
                 if (direction.getAxis().isHorizontal()) {
                     if (pLevel.getBlockState(pPos.relative(direction.getClockWise(), x).relative(Direction.UP, z)).is(pLevel.getBlockState(pPos).getBlock())) {
                         pLevel.destroyBlock(pPos.relative(direction.getClockWise(), x).relative(Direction.UP, z), true, pEntityLiving);
@@ -48,8 +45,8 @@ public class DarkCrystalShovel extends ShovelItem {
     }
 
     @Override
-    public void appendHoverText(@NotNull ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, @NotNull TooltipFlag pIsAdvanced) {
+    public void appendHoverText(ItemStack pStack, TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
         pTooltipComponents.add(Component.translatable("description." + AlternaCraft.MODID + "." + "dark_crystal_shovel").withStyle(ChatFormatting.GOLD, ChatFormatting.ITALIC));
-        super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
+        super.appendHoverText(pStack, pContext, pTooltipComponents, pTooltipFlag);
     }
 }

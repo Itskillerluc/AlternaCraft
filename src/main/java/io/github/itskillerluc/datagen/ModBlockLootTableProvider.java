@@ -2,6 +2,7 @@ package io.github.itskillerluc.datagen;
 
 import io.github.itskillerluc.init.BlockRegistry;
 import io.github.itskillerluc.init.ItemRegistry;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.level.block.Block;
@@ -11,8 +12,8 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Collections;
 
 public class ModBlockLootTableProvider extends BlockLootSubProvider {
-    protected ModBlockLootTableProvider() {
-        super(Collections.emptySet(), FeatureFlags.REGISTRY.allFlags());
+    protected ModBlockLootTableProvider(HolderLookup.Provider provider) {
+        super(Collections.emptySet(), FeatureFlags.REGISTRY.allFlags(), provider);
     }
 
     @Override

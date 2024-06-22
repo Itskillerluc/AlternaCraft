@@ -2,6 +2,7 @@ package io.github.itskillerluc.item;
 
 import io.github.itskillerluc.AlternaCraft;
 import net.minecraft.ChatFormatting;
+import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.Entity;
@@ -19,7 +20,7 @@ import java.util.List;
 public class ArmorEffectItem extends ArmorItem {
     private final MobEffectInstance[] effect;
     private final String name;
-    public ArmorEffectItem(String name, ArmorMaterial pMaterial, Type pType, Properties pProperties, MobEffectInstance... effect) {
+    public ArmorEffectItem(String name, Holder<ArmorMaterial> pMaterial, Type pType, Properties pProperties, MobEffectInstance... effect) {
         super(pMaterial, pType, pProperties);
         this.effect = effect;
         this.name = name;
@@ -54,8 +55,8 @@ public class ArmorEffectItem extends ArmorItem {
     }
 
     @Override
-    public void appendHoverText(@NotNull ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, @NotNull TooltipFlag pIsAdvanced) {
+    public void appendHoverText(ItemStack pStack, TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
         pTooltipComponents.add(Component.translatable("description." + AlternaCraft.MODID + "." + name).withStyle(ChatFormatting.GOLD, ChatFormatting.ITALIC));
-        super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
+        super.appendHoverText(pStack, pContext, pTooltipComponents, pTooltipFlag);
     }
 }

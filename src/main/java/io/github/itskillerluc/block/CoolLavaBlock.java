@@ -13,13 +13,13 @@ import org.jetbrains.annotations.NotNull;
 @SuppressWarnings("deprecation")
 public class CoolLavaBlock extends LiquidBlock {
     public CoolLavaBlock(Properties props) {
-        super(() -> (FlowingFluid) FluidRegistry.COOL_LAVA.get(), props);
+        super((FlowingFluid) FluidRegistry.COOL_LAVA.get(), props);
     }
 
     @Override
     public void entityInside(@NotNull BlockState pState, @NotNull Level pLevel, @NotNull BlockPos pPos, Entity pEntity) {
         if (!pEntity.fireImmune()) {
-            pEntity.setSecondsOnFire(15);
+            pEntity.setRemainingFireTicks(300);
             if (pEntity.hurt(pEntity.damageSources().lava(), 8.0F)) {
                 pEntity.playSound(SoundEvents.GENERIC_BURN, 0.4F, 2.0F + pLevel.random.nextFloat() * 0.4F);
             }

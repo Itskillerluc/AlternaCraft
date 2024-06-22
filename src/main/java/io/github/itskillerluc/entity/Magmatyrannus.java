@@ -8,7 +8,13 @@ import io.github.itskillerluc.entity.ai.SleepingPattern;
 import io.github.itskillerluc.init.EntityDataSerailizerRegistry;
 import io.github.itskillerluc.init.EntityRegistry;
 import io.github.itskillerluc.init.Tags;
+import io.netty.buffer.ByteBuf;
+import net.minecraft.core.Holder;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.ByteBufCodecs;
+import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.resources.ResourceLocation;
@@ -18,7 +24,9 @@ import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
+import net.minecraft.world.entity.animal.FrogVariant;
 import net.minecraft.world.entity.monster.Enemy;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.common.util.Lazy;
 import org.jetbrains.annotations.Nullable;
@@ -28,7 +36,7 @@ import java.util.Optional;
 import java.util.UUID;
 
 public class Magmatyrannus extends DinoEntity implements Animatable<MagmatyrannusModel>, VariantHolder<Magmatyrannus.Variant> {
-    public static final ResourceLocation LOCATION = new ResourceLocation(AlternaCraft.MODID, "magmatyrannus");
+    public static final ResourceLocation LOCATION = ResourceLocation.fromNamespaceAndPath(AlternaCraft.MODID, "magmatyrannus");
     public static final DucAnimation ANIMATION = DucAnimation.create(LOCATION);
     private final Lazy<Map<String, AnimationState>> animations = Lazy.of(() -> MagmatyrannusModel.createStateMap(getAnimation()));
 
@@ -46,9 +54,9 @@ public class Magmatyrannus extends DinoEntity implements Animatable<Magmatyrannu
     }
 
     @Override
-    protected void defineSynchedData() {
-        super.defineSynchedData();
-        entityData.define(VARIANT, Variant.values()[random.nextInt(Variant.values().length)]);
+    protected void defineSynchedData(SynchedEntityData.Builder pBuilder) {
+        super.defineSynchedData(pBuilder);
+        pBuilder.define(VARIANT, Variant.values()[random.nextInt(Variant.values().length)]);
     }
 
     @Override
@@ -61,6 +69,11 @@ public class Magmatyrannus extends DinoEntity implements Animatable<Magmatyrannu
     public void readAdditionalSaveData(CompoundTag pCompound) {
         super.readAdditionalSaveData(pCompound);
         entityData.set(VARIANT, Variant.values()[pCompound.getInt("variant")]);
+    }
+
+    @Override
+    public boolean isFood(ItemStack pStack) {
+        return false;
     }
 
     public static AttributeSupplier.Builder attributes() {
@@ -191,10 +204,11 @@ public class Magmatyrannus extends DinoEntity implements Animatable<Magmatyrannu
     }
 
     public enum Variant {
-        PINK(new ResourceLocation(AlternaCraft.MODID, "textures/entity/magmatyrannus_pink.png")),
-        PURPLE(new ResourceLocation(AlternaCraft.MODID, "textures/entity/magmatyrannus_purple.png")),
-        RED(new ResourceLocation(AlternaCraft.MODID, "textures/entity/magmatyrannus_red.png"));
+        PINK(ResourceLocation.fromNamespaceAndPath(AlternaCraft.MODID, "textures/entity/magmatyrannus_pink.png")),
+        PURPLE(ResourceLocation.fromNamespaceAndPath(AlternaCraft.MODID, "textures/entity/magmatyrannus_purple.png")),
+        RED(ResourceLocation.fromNamespaceAndPath(AlternaCraft.MODID, "textures/entity/magmatyrannus_red.png"));
 
+        public static final StreamCodec<ByteBuf, Variant> STREAM_CODEC = ByteBufCodecs.idMapper(i -> Variant.values()[i], Enum::ordinal);
         private final ResourceLocation texture;
 
 

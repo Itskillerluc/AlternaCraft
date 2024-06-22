@@ -3,6 +3,7 @@ package io.github.itskillerluc.init;
 import io.github.itskillerluc.AlternaCraft;
 import io.github.itskillerluc.item.*;
 import net.minecraft.ChatFormatting;
+import net.minecraft.core.Holder;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
@@ -30,45 +31,45 @@ public class ItemRegistry {
     public static final Supplier<Item> PRISMA_STICK = ITEMS.registerSimpleItem("prisma_stick");
 
     public static final DeferredHolder<Item, ArmorItem> COPPERWOOD_BOOTS = registerArmorWithDescription("copperwood_boots",
-            ArmorMaterials.COPPERWOOD, ArmorItem.Type.BOOTS, new Item.Properties());
+            ArmorMaterialRegistry.COPPERWOOD, ArmorItem.Type.BOOTS, new Item.Properties());
     public static final DeferredHolder<Item, ArmorEffectItem> COPPERWOOD_CHESTPLATE = ITEMS.register("copperwood_chestplate",
-            () -> new ArmorEffectItem("copperwood_chestplate", ArmorMaterials.COPPERWOOD, ArmorItem.Type.CHESTPLATE, new Item.Properties(), new MobEffectInstance(MobEffects.REGENERATION)));
+            () -> new ArmorEffectItem("copperwood_chestplate", ArmorMaterialRegistry.COPPERWOOD, ArmorItem.Type.CHESTPLATE, new Item.Properties(), new MobEffectInstance(MobEffects.REGENERATION)));
     public static final DeferredHolder<Item, ArmorItem> COPPERWOOD_LEGGINGS = registerArmorWithDescription("copperwood_leggings",
-            ArmorMaterials.COPPERWOOD, ArmorItem.Type.LEGGINGS, new Item.Properties());
+            ArmorMaterialRegistry.COPPERWOOD, ArmorItem.Type.LEGGINGS, new Item.Properties());
     public static final DeferredHolder<Item, ArmorItem> COPPERWOOD_HELMET = registerArmorWithDescription("copperwood_helmet",
-            ArmorMaterials.COPPERWOOD, ArmorItem.Type.HELMET, new Item.Properties());
+            ArmorMaterialRegistry.COPPERWOOD, ArmorItem.Type.HELMET, new Item.Properties());
     public static final DeferredHolder<Item, ArmorItem> DARK_CRYSTAL_BOOTS = registerArmorWithDescription("dark_crystal_boots",
-            ArmorMaterials.DARK_CRYSTAL, ArmorItem.Type.BOOTS, new Item.Properties());
+            ArmorMaterialRegistry.DARK_CRYSTAL, ArmorItem.Type.BOOTS, new Item.Properties());
     public static final DeferredHolder<Item, ArmorEffectItem> DARK_CRYSTAL_CHESTPLATE = ITEMS.register("dark_crystal_chestplate",
-            () -> new ArmorEffectItem("dark_crystal_chestplate", ArmorMaterials.DARK_CRYSTAL, ArmorItem.Type.CHESTPLATE, new Item.Properties(), new MobEffectInstance(MobEffects.DAMAGE_BOOST)));
+            () -> new ArmorEffectItem("dark_crystal_chestplate", ArmorMaterialRegistry.DARK_CRYSTAL, ArmorItem.Type.CHESTPLATE, new Item.Properties(), new MobEffectInstance(MobEffects.DAMAGE_BOOST)));
     public static final DeferredHolder<Item, ArmorItem> DARK_CRYSTAL_LEGGINGS = registerArmorWithDescription("dark_crystal_leggings",
-            ArmorMaterials.DARK_CRYSTAL, ArmorItem.Type.LEGGINGS, new Item.Properties());
+            ArmorMaterialRegistry.DARK_CRYSTAL, ArmorItem.Type.LEGGINGS, new Item.Properties());
     public static final DeferredHolder<Item, ArmorItem> DARK_CRYSTAL_HELMET = registerArmorWithDescription("dark_crystal_helmet",
-            ArmorMaterials.DARK_CRYSTAL, ArmorItem.Type.HELMET, new Item.Properties());
+            ArmorMaterialRegistry.DARK_CRYSTAL, ArmorItem.Type.HELMET, new Item.Properties());
     public static final DeferredHolder<Item, ArmorItem> MAGNETIC_BOOTS = registerArmorWithDescription("magnetic_boots",
-            ArmorMaterials.MAGNET, ArmorItem.Type.BOOTS, new Item.Properties());
+            ArmorMaterialRegistry.MAGNET, ArmorItem.Type.BOOTS, new Item.Properties());
     public static final DeferredHolder<Item, ArmorItem> MAGNETIC_CHESTPLATE = registerArmorWithDescription("magnetic_chestplate",
-            ArmorMaterials.MAGNET, ArmorItem.Type.CHESTPLATE, new Item.Properties());
+            ArmorMaterialRegistry.MAGNET, ArmorItem.Type.CHESTPLATE, new Item.Properties());
     public static final DeferredHolder<Item, ArmorItem> MAGNETIC_LEGGINGS = registerArmorWithDescription("magnetic_leggings",
-            ArmorMaterials.MAGNET, ArmorItem.Type.LEGGINGS, new Item.Properties());
+            ArmorMaterialRegistry.MAGNET, ArmorItem.Type.LEGGINGS, new Item.Properties());
     public static final DeferredHolder<Item, ArmorItem> MAGNETIC_HELMET = registerArmorWithDescription("magnetic_helmet",
-            ArmorMaterials.MAGNET, ArmorItem.Type.HELMET, new Item.Properties());
+            ArmorMaterialRegistry.MAGNET, ArmorItem.Type.HELMET, new Item.Properties());
     public static final DeferredHolder<Item, ArmorItem> AIO_BOOTS = registerArmorWithDescription("aio_boots",
-            ArmorMaterials.AIO, ArmorItem.Type.BOOTS, new Item.Properties().fireResistant());
+            ArmorMaterialRegistry.AIO, ArmorItem.Type.BOOTS, new Item.Properties().fireResistant());
     public static final DeferredHolder<Item, ArmorEffectItem> AIO_CHESTPLATE = ITEMS.register("aio_chestplate",
-            () -> new ArmorEffectItem("aio_chestplate", ArmorMaterials.AIO, ArmorItem.Type.CHESTPLATE, new Item.Properties().fireResistant(), new MobEffectInstance(MobEffects.DAMAGE_BOOST, 1, 1, false, false), new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 1, 0, false, false), new MobEffectInstance(MobEffects.REGENERATION, 1, 1, false, false)));
+            () -> new ArmorEffectItem("aio_chestplate", ArmorMaterialRegistry.AIO, ArmorItem.Type.CHESTPLATE, new Item.Properties().fireResistant(), new MobEffectInstance(MobEffects.DAMAGE_BOOST, 1, 1, false, false), new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 1, 0, false, false), new MobEffectInstance(MobEffects.REGENERATION, 1, 1, false, false)));
     public static final DeferredHolder<Item, ArmorItem> AIO_LEGGINGS = registerArmorWithDescription("aio_leggings",
-            ArmorMaterials.AIO, ArmorItem.Type.LEGGINGS, new Item.Properties().fireResistant());
+            ArmorMaterialRegistry.AIO, ArmorItem.Type.LEGGINGS, new Item.Properties().fireResistant());
     public static final DeferredHolder<Item, ArmorItem> AIO_HELMET = registerArmorWithDescription("aio_helmet",
-            ArmorMaterials.AIO, ArmorItem.Type.HELMET, new Item.Properties().fireResistant());
+            ArmorMaterialRegistry.AIO, ArmorItem.Type.HELMET, new Item.Properties().fireResistant());
     public static final DeferredHolder<Item, ArmorItem> PAINITE_BOOTS = registerArmorWithDescription("painite_boots",
-            ArmorMaterials.PAINITE, ArmorItem.Type.BOOTS, new Item.Properties().fireResistant());
+            ArmorMaterialRegistry.PAINITE, ArmorItem.Type.BOOTS, new Item.Properties().fireResistant());
     public static final DeferredHolder<Item, ArmorEffectItem> PAINITE_CHESTPLATE = ITEMS.register("painite_chestplate",
-            () -> new ArmorEffectItem("painite_chestplate", ArmorMaterials.PAINITE, ArmorItem.Type.CHESTPLATE, new Item.Properties().fireResistant(), new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 1, 0, false, false)));
+            () -> new ArmorEffectItem("painite_chestplate", ArmorMaterialRegistry.PAINITE, ArmorItem.Type.CHESTPLATE, new Item.Properties().fireResistant(), new MobEffectInstance(MobEffects.FIRE_RESISTANCE, 1, 0, false, false)));
     public static final DeferredHolder<Item, ArmorItem> PAINITE_LEGGINGS = registerArmorWithDescription("painite_leggings",
-            ArmorMaterials.PAINITE, ArmorItem.Type.LEGGINGS, new Item.Properties().fireResistant());
+            ArmorMaterialRegistry.PAINITE, ArmorItem.Type.LEGGINGS, new Item.Properties().fireResistant());
     public static final DeferredHolder<Item, ArmorItem> PAINITE_HELMET = registerArmorWithDescription("painite_helmet",
-            ArmorMaterials.PAINITE, ArmorItem.Type.HELMET, new Item.Properties().fireResistant());
+            ArmorMaterialRegistry.PAINITE, ArmorItem.Type.HELMET, new Item.Properties().fireResistant());
 
     public static final DeferredHolder<Item, PickaxeItem> AIO_PICKAXE = ITEMS.registerItem("aio_pickaxe",
             properties -> new AIOPickaxe(ToolTiers.AIO_TIER, 5, -3, properties.fireResistant()));
@@ -124,7 +125,7 @@ public class ItemRegistry {
     public static final Supplier<BlockItem> CHARRED_BARK = ITEMS.registerSimpleBlockItem(BlockRegistry.CHARRED_BARK);
     public static final Supplier<BlockItem> CHARRED_PLANKS = ITEMS.registerSimpleBlockItem(BlockRegistry.CHARRED_PLANKS);
     public static final DeferredHolder<Item, BucketItem> COOL_LAVA_BUCKET = ITEMS.registerItem("cool_lava_bucket",
-            props -> new BucketItem(FluidRegistry.COOL_LAVA, props), new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET));
+            props -> new BucketItem(FluidRegistry.COOL_LAVA.get(), props), new Item.Properties().stacksTo(1).craftRemainder(Items.BUCKET));
     public static final Supplier<BlockItem> DEAD_DANDELION = ITEMS.registerSimpleBlockItem(BlockRegistry.DEAD_DANDELION);
     public static final Supplier<BlockItem> DEAD_POPPY = ITEMS.registerSimpleBlockItem(BlockRegistry.DEAD_POPPY);
     public static final Supplier<BlockItem> DEAD_GRASS = ITEMS.registerSimpleBlockItem(BlockRegistry.DEAD_GRASS);
@@ -168,12 +169,12 @@ public class ItemRegistry {
     public static final Supplier<BlockItem> STRIPPED_RED_PASTEL_LOG = ITEMS.registerSimpleBlockItem(BlockRegistry.STRIPPED_RED_PASTEL_LOG);
     public static final Supplier<BlockItem> YELLOW_COLORFUL_FLOWER = ITEMS.registerSimpleBlockItem(BlockRegistry.YELLOW_COLORFUL_FLOWER);
 
-    private static DeferredHolder<Item, ArmorItem> registerArmorWithDescription(String name, ArmorMaterial material, ArmorItem.Type type, Item.Properties properties) {
+    private static DeferredHolder<Item, ArmorItem> registerArmorWithDescription(String name, Holder<ArmorMaterial> material, ArmorItem.Type type, Item.Properties properties) {
         return ITEMS.register(name, () -> new ArmorItem(material, type, properties) {
             @Override
-            public void appendHoverText(@NotNull ItemStack pStack, @Nullable Level pLevel, @NotNull List<Component> pTooltipComponents, @NotNull TooltipFlag pIsAdvanced) {
+            public void appendHoverText(ItemStack pStack, TooltipContext pContext, List<Component> pTooltipComponents, TooltipFlag pTooltipFlag) {
                 pTooltipComponents.add(Component.translatable("description." + AlternaCraft.MODID + "." + name).withStyle(ChatFormatting.GOLD, ChatFormatting.ITALIC));
-                super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
+                super.appendHoverText(pStack, pContext, pTooltipComponents, pTooltipFlag);
             }
         });
     }
